@@ -1,3 +1,10 @@
+import { WindowWidthOverlay } from './components/WindowWidthOverlay';
+
 export default function App() {
-	return <h1>MARKWRITER</h1>;
+	return (
+		<>
+			<WindowWidthOverlay />
+			<h1>MARKWRITER</h1>
+		</>
+	);
 }
