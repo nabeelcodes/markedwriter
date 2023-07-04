@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	/* custom css classes should go here as
+	an extension to TW utilities */
+	.custom-focus-outline {
+		/* This custom class removes default
+		focus styles and applies TW's custom
+		ring utilities for a11y */
+		@apply focus:outline-none focus:ring focus:ring-green-500 focus:ring-offset-2;
+	}
+}
+
+/* SCROLL-BAR CSS : START */
+::-webkit-scrollbar {
+	width: 7px;
+	height: 4px;
+}
+
+::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0);
+}
+
+::-webkit-scrollbar-thumb {
+	background: #afafaf;
+	border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #606060;
+}
+/* SCROLL-BAR CSS : END */
