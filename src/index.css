@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+	/* Custom font MabryPro : REGULAR and BOLD */
+	@font-face {
+		font-family: 'MabryPro-regular';
+		font-weight: 400;
+		src: url('/fonts/MabryPro-Regular.woff2') format('woff2'),
+			url('/fonts/MabryPro-Regular.woff') format('woff');
+	}
+	@font-face {
+		font-family: 'MabryPro-bold';
+		font-weight: 400;
+		src: url('/fonts/MabryPro-Bold.woff2') format('woff2'),
+			url('/fonts/MabryPro-Bold.woff') format('woff');
+	}
+}
+
 @layer utilities {
 	/* custom css classes should go here as
 	an extension to TW utilities */
