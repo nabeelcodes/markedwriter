@@ -23,7 +23,29 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    /* Custom paths for imports */
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [
+        "./src/*"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@store/*": [
+        "./src/store/*"
+      ],
+      "@utilities/*": [
+        "./src/utilities/*"
+      ],
+    }
   },
   "include": [
     "src",
@@ -33,5 +55,5 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ]
+  ],
 }
