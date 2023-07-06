@@ -25,25 +25,25 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     /* Custom paths for imports */
-    "baseUrl": ".",
+    "baseUrl": "./",
     "paths": {
       "@src/*": [
-        "./src/*"
+        "src/*"
       ],
       "@assets/*": [
-        "./src/assets/*"
+        "src/assets/*"
       ],
       "@components/*": [
-        "./src/components/*"
+        "src/components/*"
       ],
       "@hooks/*": [
-        "./src/hooks/*"
+        "src/hooks/*"
       ],
       "@store/*": [
-        "./src/store/*"
+        "src/store/*"
       ],
       "@utilities/*": [
-        "./src/utilities/*"
+        "src/utilities/*"
       ],
     }
   },
