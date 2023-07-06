@@ -20,7 +20,7 @@ export const WindowWidthOverlay = () => {
 	}, []);
 
 	return (
-		<div className='absolute bottom-4 left-4 flex items-center rounded-md bg-slate-200 px-4 py-2 font-mono text-2xl font-bold text-gray-400'>
+		<div className='fixed bottom-4 left-4 flex items-center rounded-md bg-slate-200 px-4 py-2 font-mono text-2xl font-bold text-gray-400'>
 			{windowWidth <= 640 && <CellPhoneSVG />}
 			{windowWidth > 640 && windowWidth <= 1024 && <TabletSVG />}
 			{windowWidth > 1024 && <DesktopSVG />}
