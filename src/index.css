@@ -3,8 +3,16 @@
 @tailwind utilities;
 
 @layer utilities {
-	/* custom css classes should go here as
+	/* Custom css classes should go here as
 	an extension to TW utilities */
+
+	.container2000 {
+		/* This is a custom class to apply TW
+		styles for a custom container of 
+		max-width: 2000px */
+		@apply mx-auto max-w-[2000px];
+	}
+
 	.custom-focus-outline {
 		/* This custom class removes default
 		focus styles and applies TW's custom
