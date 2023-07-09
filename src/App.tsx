@@ -1,12 +1,12 @@
-import { WindowWidthOverlay } from '@src/components/WindowWidthOverlay';
-import { LayoutContainer } from '@src/LayoutContainer';
+import { WindowWidthOverlay } from './components/WindowWidthOverlay';
+import { LayoutContainer } from './LayoutContainer';
 
 export default function App() {
 	return (
 		<>
 			<WindowWidthOverlay />
 
-			<LayoutContainer>Main</LayoutContainer>
+			<LayoutContainer>Main section</LayoutContainer>
 		</>
 	);
 }
