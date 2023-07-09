@@ -1,25 +1,28 @@
-import { AppLogoDark } from '@src/assets/AppLogoDarkSVG';
-import { AppLogoLight } from '@src/assets/AppLogoLightSVG';
-import { NavBar } from '@src/components/NavBar';
+import { AppLogoDark } from '../assets/AppLogoDarkSVG';
+import { AppLogoLight } from '../assets/AppLogoLightSVG';
+import { NavBar } from './NavBar';
+import { cn } from '../utilities/classNameHelper';
 
 export const Header = () => {
 	// check global state for darkTheme
-	const darkTheme = 'false';
+	const darkTheme = false;
 
 	return (
 		<div
-			className='border-b border-gray-200 px-5'
+			className={cn('border-b border-gray-200 bg-white px-5', {
+				'border-neutral-600 bg-neutral-800': darkTheme
+			})}
 			aria-labelledby='Header wrapper'
 		>
-			<header className='container2000 relative flex h-16 items-center justify-between'>
+			<header className='container2000 relative flex h-16 items-center justify-between '>
 				<div
 					className='cursor-pointer'
 					aria-labelledby='Website Logo container'
 				>
-					{darkTheme === 'false' ? <AppLogoDark /> : <AppLogoLight />}
+					{!darkTheme ? <AppLogoDark /> : <AppLogoLight />}
 				</div>
 
-				<NavBar />
+				<NavBar darkTheme={darkTheme} />
 			</header>
 		</div>
 	);

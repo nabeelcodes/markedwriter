@@ -1,14 +1,19 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { HamburgerIcon } from '@src/assets/HamburgerSVG';
-import { CmdIcon } from '@src/assets/CmdIconSVG';
-import { NightIcon } from '@src/assets/NightIconSVG';
+import { HamburgerIcon } from '../assets/HamburgerSVG';
+import { NightIcon } from '../assets/NightIconSVG';
+import { CmdIcon } from '../assets/CmdIconSVG';
+import { cn } from '../utilities/classNameHelper';
 
-export const NavBar = () => {
+type navBarProps = {
+	darkTheme: boolean;
+};
+
+export const NavBar = ({ darkTheme }: navBarProps) => {
 	return (
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger asChild>
 				<button aria-labelledby='Navigation Menu trigger'>
-					<HamburgerIcon />
+					<HamburgerIcon darkTheme={darkTheme} />
 				</button>
 			</DropdownMenu.Trigger>
 
@@ -18,17 +23,22 @@ export const NavBar = () => {
 					align='end'
 					asChild
 				>
-					<nav className='rounded-md border bg-white p-4 shadow-md'>
-						<ul className='flex flex-col gap-3'>
+					<nav
+						className={cn(
+							'rounded-md border bg-white p-4 font-mabryProRegular text-gray-950 shadow-md',
+							{
+								'border-gray-300 bg-neutral-800 text-gray-300': darkTheme
+							}
+						)}
+					>
+						<ul className='space-y-3'>
 							<DropdownMenu.Item
 								asChild
-								className='flex items-center justify-between'
+								className='flex items-center justify-between space-x-10'
 							>
 								<li>
-									<CmdIcon />
-									<span className='ml-8 font-mabryProRegular text-black/80'>
-										Shortcuts
-									</span>
+									<CmdIcon fill={darkTheme ? '#d1d5db' : undefined} />
+									<span>Shortcuts</span>
 								</li>
 							</DropdownMenu.Item>
 
@@ -37,16 +47,21 @@ export const NavBar = () => {
 								className='flex items-center justify-between'
 							>
 								<li>
-									<NightIcon />
-									<span className='font-mabryProRegular text-black/80'>
-										Dark
-									</span>
+									<NightIcon fill={darkTheme ? '#d1d5db' : undefined} />
+									<span>Dark</span>
 								</li>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item asChild>
 								<li>
-									<button className='w-full rounded-md border-2 border-black/70  py-1.5 font-mabryProRegular text-black/80'>
+									<button
+										className={cn(
+											'w-full rounded-md border-2 border-gray-800 py-1.5',
+											{
+												'border-gray-300': darkTheme
+											}
+										)}
+									>
 										What's this?
 									</button>
 								</li>
@@ -54,7 +69,15 @@ export const NavBar = () => {
 
 							<DropdownMenu.Item asChild>
 								<li>
-									<button className='w-full rounded-md border-2 border-black/80 bg-black/80 py-1.5  font-mabryProRegular text-gray-100'>
+									<button
+										className={cn(
+											'w-full rounded-md border-2 border-gray-800 bg-neutral-800 py-1.5 text-gray-100',
+											{
+												'border-gray-300 bg-gray-300 text-neutral-800':
+													darkTheme
+											}
+										)}
+									>
 										Login
 									</button>
 								</li>
