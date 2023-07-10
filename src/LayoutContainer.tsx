@@ -1,4 +1,5 @@
 import { Header } from './components/Header';
+import { MainSection } from './components/MainSection';
 
 type LayoutContainerProps = {
 	children: React.ReactNode;
@@ -12,9 +13,7 @@ export const LayoutContainer = ({ children }: LayoutContainerProps) => {
 		>
 			<Header />
 
-			<main className='container2000 min-w-full shrink-0 grow basis-full font-mabryProRegular'>
-				{children}
-			</main>
+			<MainSection>{children}</MainSection>
 		</div>
 	);
 };

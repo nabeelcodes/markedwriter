@@ -1,20 +1,20 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { HamburgerIcon } from '../assets/HamburgerSVG';
 import { NightIcon } from '../assets/NightIconSVG';
+import { DayIcon } from '../assets/DayIconSVG';
 import { CmdIcon } from '../assets/CmdIconSVG';
+import { theme } from '../store/theme';
+import { useAtom } from 'jotai';
+import { darkModeAtom } from '../store/appState';
 import { cn } from '../utilities/classNameHelper';
+import { NavMenuTrigger } from './NavMenuTrigger';
 
-type navBarProps = {
-	darkTheme: boolean;
-};
+export const NavBar = () => {
+	const [darkTheme, setDarkTheme] = useAtom(darkModeAtom);
 
-export const NavBar = ({ darkTheme }: navBarProps) => {
 	return (
 		<DropdownMenu.Root>
 			<DropdownMenu.Trigger asChild>
-				<button aria-labelledby='Navigation Menu trigger'>
-					<HamburgerIcon darkTheme={darkTheme} />
-				</button>
+				<NavMenuTrigger darktheme={darkTheme ? 'true' : 'false'} />
 			</DropdownMenu.Trigger>
 
 			<DropdownMenu.Portal>
@@ -37,18 +37,25 @@ export const NavBar = ({ darkTheme }: navBarProps) => {
 								className='flex items-center justify-between space-x-10'
 							>
 								<li>
-									<CmdIcon fill={darkTheme ? '#d1d5db' : undefined} />
+									<CmdIcon fill={darkTheme ? theme.light : undefined} />
 									<span>Shortcuts</span>
 								</li>
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item
 								asChild
-								className='flex items-center justify-between'
+								onSelect={(event) => event.preventDefault()}
 							>
 								<li>
-									<NightIcon fill={darkTheme ? '#d1d5db' : undefined} />
-									<span>Dark</span>
+									<button
+										className='flex w-full items-center justify-between'
+										onClick={() => {
+											setDarkTheme((prevState: boolean) => !prevState);
+										}}
+									>
+										{darkTheme ? <DayIcon /> : <NightIcon />}
+										<span>{darkTheme ? `Light` : `Dark`}</span>
+									</button>
 								</li>
 							</DropdownMenu.Item>
 

@@ -1,0 +1,20 @@
+.triggerButton::before {
+	content: ' ';
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: -0.1em;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.triggerButton[data-state='open']::before {
+	content: '\1F5D9';
+	font-size: 1.8rem;
+}
+.triggerButton[data-state='closed']::before {
+	content: '\002E2C';
+	font-size: 2.5rem;
+}

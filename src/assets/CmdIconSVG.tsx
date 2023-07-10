@@ -1,8 +1,10 @@
+import { theme } from '../store/theme';
+
 type cmdIconProps = {
 	fill?: string;
 };
 
-export const CmdIcon = ({ fill = '#030712' }: cmdIconProps) => {
+export const CmdIcon = ({ fill = theme.dark }: cmdIconProps) => {
 	return (
 		<svg
 			width='17'
