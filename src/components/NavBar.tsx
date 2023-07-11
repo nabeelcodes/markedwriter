@@ -1,15 +1,13 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { NightIcon } from '../assets/NightIconSVG';
-import { DayIcon } from '../assets/DayIconSVG';
-import { CmdIcon } from '../assets/CmdIconSVG';
-import { theme } from '../store/theme';
 import { useAtom } from 'jotai';
 import { darkModeAtom } from '../store/appState';
 import { cn } from '../utilities/classNameHelper';
 import { NavMenuTrigger } from './NavMenuTrigger';
+import { NavItemShortcuts } from './NavItemShortcuts';
+import { NavItemThemeToggle } from './NavItemThemeToggle';
 
 export const NavBar = () => {
-	const [darkTheme, setDarkTheme] = useAtom(darkModeAtom);
+	const [darkTheme] = useAtom(darkModeAtom);
 
 	return (
 		<DropdownMenu.Root>
@@ -32,31 +30,15 @@ export const NavBar = () => {
 						)}
 					>
 						<ul className='space-y-3'>
-							<DropdownMenu.Item
-								asChild
-								className='flex items-center justify-between space-x-10'
-							>
-								<li>
-									<CmdIcon fill={darkTheme ? theme.light : undefined} />
-									<span>Shortcuts</span>
-								</li>
+							<DropdownMenu.Item asChild>
+								<NavItemShortcuts darkTheme={darkTheme} />
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item
-								asChild
 								onSelect={(event) => event.preventDefault()}
+								asChild
 							>
-								<li>
-									<button
-										className='flex w-full items-center justify-between'
-										onClick={() => {
-											setDarkTheme((prevState: boolean) => !prevState);
-										}}
-									>
-										{darkTheme ? <DayIcon /> : <NightIcon />}
-										<span>{darkTheme ? `Light` : `Dark`}</span>
-									</button>
-								</li>
+								<NavItemThemeToggle />
 							</DropdownMenu.Item>
 
 							<DropdownMenu.Item asChild>

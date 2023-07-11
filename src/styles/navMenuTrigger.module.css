@@ -11,7 +11,7 @@
 }
 
 .triggerButton[data-state='open']::before {
-	content: '\1F5D9';
+	content: '\01F5D9';
 	font-size: 1.8rem;
 }
 .triggerButton[data-state='closed']::before {
