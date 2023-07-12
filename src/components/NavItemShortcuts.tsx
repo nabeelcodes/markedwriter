@@ -1,24 +1,24 @@
+import { useAtom } from 'jotai';
 import { forwardRef } from 'react';
+import { darkModeAtom } from '../store/appState';
 import { CmdIcon } from '../assets/CmdIconSVG';
 import { theme } from '../store/theme';
 
-type navItemShortcutsProps = {
-	darkTheme: boolean;
-};
+export const NavItemShortcuts = forwardRef<HTMLLIElement>(
+	(props, forwardedRef) => {
+		const [darkTheme] = useAtom(darkModeAtom);
 
-export const NavItemShortcuts = forwardRef<
-	HTMLLIElement,
-	navItemShortcutsProps
->((props, forwardedRef) => {
-	return (
-		<li
-			ref={forwardedRef}
-			{...props}
-		>
-			<button className='flex items-center justify-between space-x-10'>
-				<CmdIcon fill={props.darkTheme ? theme.light : undefined} />
-				<span>Shortcuts</span>
-			</button>
-		</li>
-	);
-});
+		return (
+			<li
+				className='list-none'
+				ref={forwardedRef}
+				{...props}
+			>
+				<button className='flex items-center justify-between space-x-10'>
+					<CmdIcon fill={darkTheme ? theme.light : undefined} />
+					<span className='md:hidden'>Shortcuts</span>
+				</button>
+			</li>
+		);
+	}
+);

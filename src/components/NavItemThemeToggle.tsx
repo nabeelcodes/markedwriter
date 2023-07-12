@@ -10,6 +10,7 @@ export const NavItemThemeToggle = forwardRef<HTMLLIElement>(
 
 		return (
 			<li
+				className='list-none'
 				ref={forwardedRef}
 				{...props}
 			>
@@ -20,7 +21,7 @@ export const NavItemThemeToggle = forwardRef<HTMLLIElement>(
 					}}
 				>
 					{darkTheme ? <DayIcon /> : <NightIcon />}
-					<span>{darkTheme ? `Light` : `Dark`}</span>
+					<span className='md:hidden'>{darkTheme ? `Light` : `Dark`}</span>
 				</button>
 			</li>
 		);

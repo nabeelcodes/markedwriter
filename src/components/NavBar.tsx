@@ -1,80 +1,12 @@
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { useAtom } from 'jotai';
-import { darkModeAtom } from '../store/appState';
-import { cn } from '../utilities/classNameHelper';
-import { NavMenuTrigger } from './NavMenuTrigger';
-import { NavItemShortcuts } from './NavItemShortcuts';
-import { NavItemThemeToggle } from './NavItemThemeToggle';
+import { NavMenuMobile } from './NavMenuMobile';
+import { NavMenuDesktop } from './NavMenuDesktop';
 
 export const NavBar = () => {
-	const [darkTheme] = useAtom(darkModeAtom);
-
 	return (
-		<DropdownMenu.Root>
-			<DropdownMenu.Trigger asChild>
-				<NavMenuTrigger darktheme={darkTheme ? 'true' : 'false'} />
-			</DropdownMenu.Trigger>
+		<>
+			<NavMenuMobile />
 
-			<DropdownMenu.Portal>
-				<DropdownMenu.Content
-					sideOffset={10}
-					align='end'
-					asChild
-				>
-					<nav
-						className={cn(
-							'rounded-md border bg-white p-4 font-mabryProRegular text-gray-950 shadow-md',
-							{
-								'border-gray-300 bg-neutral-800 text-gray-300': darkTheme
-							}
-						)}
-					>
-						<ul className='space-y-3'>
-							<DropdownMenu.Item asChild>
-								<NavItemShortcuts darkTheme={darkTheme} />
-							</DropdownMenu.Item>
-
-							<DropdownMenu.Item
-								onSelect={(event) => event.preventDefault()}
-								asChild
-							>
-								<NavItemThemeToggle />
-							</DropdownMenu.Item>
-
-							<DropdownMenu.Item asChild>
-								<li>
-									<button
-										className={cn(
-											'w-full rounded-md border-2 border-gray-800 py-1.5',
-											{
-												'border-gray-300': darkTheme
-											}
-										)}
-									>
-										What's this?
-									</button>
-								</li>
-							</DropdownMenu.Item>
-
-							<DropdownMenu.Item asChild>
-								<li>
-									<button
-										className={cn(
-											'w-full rounded-md border-2 border-gray-800 bg-neutral-800 py-1.5 text-gray-100',
-											{
-												'border-gray-300 bg-gray-300 text-neutral-800':
-													darkTheme
-											}
-										)}
-									>
-										Login
-									</button>
-								</li>
-							</DropdownMenu.Item>
-						</ul>
-					</nav>
-				</DropdownMenu.Content>
-			</DropdownMenu.Portal>
-		</DropdownMenu.Root>
+			<NavMenuDesktop />
+		</>
 	);
 };
