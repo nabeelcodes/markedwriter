@@ -1,6 +1,6 @@
+import { forwardRef } from 'react';
 import { cn } from '../utilities/classNameHelper';
 import cssStyles from '../styles/navMenuTrigger.module.css';
-import { forwardRef } from 'react';
 
 type navMenuTriggerProps = {
 	/* Received props: `darktheme` must be a string value as the DOM won't allow non-string(boolean) props to be passed on a DOM-Element */
@@ -17,16 +17,29 @@ export const NavMenuTrigger = forwardRef<
 
 	return (
 		<button
-			className={cn(
-				`relative h-8 w-8 text-[#030712] ${cssStyles.triggerButton}`,
-				{
-					'text-gray-300': darkMode
-				}
-			)}
+			className={cssStyles.triggerButton}
 			aria-labelledby='Navigation Menu trigger'
 			ref={forwardedRef}
 			type='button'
 			{...props}
-		/>
+		>
+			<div className={cssStyles.hamburger}>
+				<span
+					className={cn(`bg-[#030712] ${cssStyles.line}`, {
+						'bg-gray-300': darkMode
+					})}
+				></span>
+				<span
+					className={cn(`bg-[#030712] ${cssStyles.line}`, {
+						'bg-gray-300': darkMode
+					})}
+				></span>
+				<span
+					className={cn(`bg-[#030712] ${cssStyles.line}`, {
+						'bg-gray-300': darkMode
+					})}
+				></span>
+			</div>
+		</button>
 	);
 });
