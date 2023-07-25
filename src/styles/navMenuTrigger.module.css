@@ -9,13 +9,23 @@
 .line {
 	height: 5px;
 	display: block;
+	border-radius: 10px;
 	-webkit-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
 
+.line:nth-child(1),
+.line:nth-child(3) {
+	width: 50%;
+}
+
 .line:nth-child(2) {
-	width: 1.4em;
+	width: 100%;
+}
+
+.line:nth-child(3) {
+	transform: translateX(100%);
 }
 
 .triggerButton[data-state='open'] .hamburger {
@@ -32,7 +42,7 @@
 }
 
 .triggerButton[data-state='open'] .line:nth-child(2) {
-	width: 0px;
+	width: 0%;
 }
 
 .triggerButton[data-state='open'] .line:nth-child(1),
@@ -40,6 +50,7 @@
 	-webkit-transition-delay: 0.3s;
 	-o-transition-delay: 0.3s;
 	transition-delay: 0.3s;
+	width: 100%;
 }
 
 .triggerButton[data-state='open'] .line:nth-child(1) {

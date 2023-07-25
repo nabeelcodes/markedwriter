@@ -1,9 +1,8 @@
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useAtom } from 'jotai';
 import { darkModeAtom } from '../store/appState';
 import { cn } from '../utilities/classNameHelper';
 import { NavMenuTrigger } from './NavMenuTrigger';
-import { NavItemShortcuts } from './NavItemShortcuts';
 import { NavItemThemeToggle } from './NavItemThemeToggle';
 import { NavItemAbout } from './NavItemAbout';
 import { NavItemLogin } from './NavItemLogin';
@@ -12,13 +11,13 @@ export const NavMenuMobile = () => {
 	const [darkTheme] = useAtom(darkModeAtom);
 
 	return (
-		<DropdownMenu.Root>
-			<DropdownMenu.Trigger asChild>
+		<RadixDropdownMenu.Root>
+			<RadixDropdownMenu.Trigger asChild>
 				<NavMenuTrigger darktheme={darkTheme ? 'enabled' : 'disabled'} />
-			</DropdownMenu.Trigger>
+			</RadixDropdownMenu.Trigger>
 
-			<DropdownMenu.Portal>
-				<DropdownMenu.Content
+			<RadixDropdownMenu.Portal>
+				<RadixDropdownMenu.Content
 					sideOffset={10}
 					align='end'
 					asChild
@@ -32,28 +31,24 @@ export const NavMenuMobile = () => {
 						)}
 					>
 						<ul className='space-y-3'>
-							<DropdownMenu.Item asChild>
-								<NavItemShortcuts />
-							</DropdownMenu.Item>
-
-							<DropdownMenu.Item
+							<RadixDropdownMenu.Item
 								onSelect={(event) => event.preventDefault()}
 								asChild
 							>
 								<NavItemThemeToggle />
-							</DropdownMenu.Item>
+							</RadixDropdownMenu.Item>
 
-							<DropdownMenu.Item asChild>
+							<RadixDropdownMenu.Item asChild>
 								<NavItemAbout />
-							</DropdownMenu.Item>
+							</RadixDropdownMenu.Item>
 
-							<DropdownMenu.Item asChild>
+							<RadixDropdownMenu.Item asChild>
 								<NavItemLogin />
-							</DropdownMenu.Item>
+							</RadixDropdownMenu.Item>
 						</ul>
 					</nav>
-				</DropdownMenu.Content>
-			</DropdownMenu.Portal>
-		</DropdownMenu.Root>
+				</RadixDropdownMenu.Content>
+			</RadixDropdownMenu.Portal>
+		</RadixDropdownMenu.Root>
 	);
 };
