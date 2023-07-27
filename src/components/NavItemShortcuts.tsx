@@ -44,10 +44,8 @@ export const NavItemShortcuts = () => {
 									key={i}
 									className='mb-2'
 								>
-									<code className='rounded border px-1 font-mono'>
-										Cmd + Ctrl + t
-									</code>{' '}
-									: insert a table
+									<code className='rounded border px-1 font-mono'>t</code> :
+									insert a table
 								</li>
 							))}
 						</ul>

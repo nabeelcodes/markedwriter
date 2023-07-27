@@ -11,15 +11,14 @@ export const MainSection = ({ children }: mainSectionProps) => {
 
 	return (
 		<div
-			className={cn(
-				'shrink-0 grow basis-full bg-white font-mabryProRegular text-gray-950',
-				{
-					'bg-neutral-800 text-gray-300': darkTheme
-				}
-			)}
+			className={cn('shrink-0 grow basis-full bg-white text-gray-950', {
+				'bg-neutral-800 text-gray-300': darkTheme
+			})}
 			aria-labelledby='Main Section wrapper'
 		>
-			<main className='container2000 px-5'>{children}</main>
+			<main className='container2000 px-5 font-mabryProRegular'>
+				{children}
+			</main>
 		</div>
 	);
 };

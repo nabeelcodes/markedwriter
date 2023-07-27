@@ -1,5 +1,5 @@
-import { Header } from './components/Header';
-import { MainSection } from './components/MainSection';
+import { Header } from './Header';
+import { MainSection } from './MainSection';
 
 type LayoutContainerProps = {
 	children: React.ReactNode;
@@ -8,7 +8,7 @@ type LayoutContainerProps = {
 export const LayoutContainer = ({ children }: LayoutContainerProps) => {
 	return (
 		<div
-			className='flex min-h-screen flex-col'
+			className='relative flex min-h-screen flex-col'
 			aria-labelledby='App wrapper'
 		>
 			<Header />
