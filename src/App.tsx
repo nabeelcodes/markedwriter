@@ -20,7 +20,7 @@ export default function App() {
 						element={<LandingPage />}
 					/>
 					<Route
-						path='/editor'
+						path='/:id'
 						element={<MarkdownEditor />}
 					/>
 					<Route
