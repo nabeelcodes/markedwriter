@@ -7,7 +7,7 @@ export const darkModeAtom = atomWithStorage<boolean>('darkMode', false);
 type appDataType = {
 	id: string;
 	title: string;
-	content?: string;
+	content: string;
 	date: string;
 }[];
 export const appDataAtom = atomWithStorage<appDataType>('appData', []);

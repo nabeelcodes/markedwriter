@@ -24,7 +24,7 @@ export const NavMenuMobile = () => {
 				>
 					<nav
 						className={cn(
-							'rounded-md border bg-white p-4 font-mabryProRegular text-gray-950 shadow-md',
+							'rounded-md border bg-white p-4 font-sans text-gray-950 shadow-md',
 							{
 								'border-gray-300 bg-neutral-800 text-gray-300': darkTheme
 							}

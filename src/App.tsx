@@ -1,10 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { LayoutContainer } from './components/LayoutContainer';
 import { LandingPage } from './pages/LandingPage';
-
-const MarkdownEditor = () => {
-	return <h1>Markdown Editor Page</h1>;
-};
+import { MarkdownEditor } from './pages/MarkdownEditor';
 
 const NoMatch = () => {
 	return <h1>404 Not Found</h1>;
@@ -12,8 +9,8 @@ const NoMatch = () => {
 
 export default function App() {
 	return (
-		<LayoutContainer>
-			<Router>
+		<Router>
+			<LayoutContainer>
 				<Routes>
 					<Route
 						path='/'
@@ -28,7 +25,7 @@ export default function App() {
 						element={<NoMatch />}
 					/>
 				</Routes>
-			</Router>
-		</LayoutContainer>
+			</LayoutContainer>
+		</Router>
 	);
 }

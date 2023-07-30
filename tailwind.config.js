@@ -8,11 +8,7 @@ export default {
 		extend: {
 			fontFamily: {
 				mono: ["'DM Mono'", ...defaultTheme.fontFamily.mono],
-				mabryProRegular: [
-					"'MabryPro-regular'",
-					...defaultTheme.fontFamily.sans
-				],
-				mabryProBold: ["'MabryPro-bold'", ...defaultTheme.fontFamily.sans]
+				sans: ["'Manrope'", ...defaultTheme.fontFamily.sans]
 			},
 			keyframes: {
 				overlayShow: {

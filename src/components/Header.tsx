@@ -4,6 +4,7 @@ import { AppLogoDark } from '../assets/AppLogoDarkSVG';
 import { AppLogoLight } from '../assets/AppLogoLightSVG';
 import { NavBar } from './NavBar';
 import { cn } from '../utilities/classNameHelper';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
 	// check global state for darkTheme
@@ -17,12 +18,14 @@ export const Header = () => {
 			aria-labelledby='Header wrapper'
 		>
 			<header className='container2000 relative flex h-16 items-center justify-between'>
-				<div
-					className='cursor-pointer'
-					aria-labelledby='Website Logo container'
-				>
-					{!darkTheme ? <AppLogoDark /> : <AppLogoLight />}
-				</div>
+				<Link to='/'>
+					<div
+						className='cursor-pointer'
+						aria-labelledby='Website Logo container'
+					>
+						{!darkTheme ? <AppLogoDark /> : <AppLogoLight />}
+					</div>
+				</Link>
 
 				<NavBar />
 			</header>

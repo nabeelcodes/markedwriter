@@ -16,9 +16,7 @@ export const MainSection = ({ children }: mainSectionProps) => {
 			})}
 			aria-labelledby='Main Section wrapper'
 		>
-			<main className='container2000 px-5 font-mabryProRegular'>
-				{children}
-			</main>
+			<main className='container2000 px-5 font-sans'>{children}</main>
 		</div>
 	);
 };
