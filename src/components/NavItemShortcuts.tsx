@@ -31,6 +31,7 @@ export const NavItemShortcuts = () => {
 					<RadixDialog.Title className='mb-4 border-b-2 pb-2 text-2xl font-bold'>
 						Keyboard Shortcuts
 					</RadixDialog.Title>
+
 					<RadixDialog.Description className='font-sans'>
 						To increase your productivity when working with markdown, you can
 						use the following keyboard shortcuts by pressing{' '}
@@ -50,6 +51,7 @@ export const NavItemShortcuts = () => {
 							))}
 						</ul>
 					</RadixDialog.Description>
+
 					<RadixDialog.Close asChild>
 						<button
 							aria-label='Close'

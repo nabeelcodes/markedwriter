@@ -1,9 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import { appDataAtom, darkModeAtom } from '../store/appState';
 import { NewFileIconSVG } from '../assets/NewFileIconSVG';
 import { PlusIconSVG } from '../assets/PlusIconSVG';
+import { PostList } from '../components/PostList';
 import { cn } from '../utilities/classNameHelper';
 
 export const LandingPage = () => {
@@ -11,17 +11,11 @@ export const LandingPage = () => {
 	const [darkTheme] = useAtom(darkModeAtom);
 	const [appData, setAppData] = useAtom(appDataAtom);
 
-	/* Reversing `appData` array to render posts in correct order */
-	const sortedArray = useMemo(() => {
-		const clonedArray = [...appData];
-		return clonedArray.reverse();
-	}, [appData]);
-
-	const handleClick = () => {
+	const createNewMarkdownFile = () => {
 		const slug = (Math.random().toString(16) + '0000000').slice(2, 10);
 		const newPost = {
 			id: slug,
-			title: 'Post',
+			title: 'Demo Title',
 			content: ' ',
 			date:
 				String(new Date()).substring(4, 10) +
@@ -50,7 +44,7 @@ export const LandingPage = () => {
 							'bg-gray-300 text-neutral-950': darkTheme
 						}
 					)}
-					onClick={() => handleClick()}
+					onClick={() => createNewMarkdownFile()}
 				>
 					<span>
 						<PlusIconSVG />
@@ -76,36 +70,7 @@ export const LandingPage = () => {
 				</section>
 			)}
 
-			{appData?.length > 0 && (
-				<ul className='mt-6 flex flex-col gap-y-4 rounded-lg'>
-					<button
-						className='rounded-md bg-red-500 p-3 text-gray-100'
-						onClick={() => {
-							setAppData([]);
-						}}
-					>
-						Delete All Posts
-					</button>
-
-					{sortedArray.map(({ id, title, date }) => (
-						<Link
-							to={`/${id}`}
-							key={id}
-						>
-							<li className='rounded-lg border border-gray-200 p-4'>
-								<h2
-									className={cn('text-lg font-bold text-neutral-800', {
-										'text-gray-300': darkTheme
-									})}
-								>
-									{title} - {id}
-								</h2>
-								<p className='mt-1 text-sm opacity-70'>{date}</p>
-							</li>
-						</Link>
-					))}
-				</ul>
-			)}
+			{appData?.length > 0 && <PostList />}
 		</div>
 	);
 };
