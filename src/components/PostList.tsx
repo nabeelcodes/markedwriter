@@ -25,24 +25,30 @@ export const PostList = () => {
 				Delete All Posts
 			</button>
 
-			{sortedArray.map(({ id, title, date }) => (
-				<Link
-					to={`/${id}`}
-					key={id}
-				>
-					<li
-						className={cn(
-							'rounded-lg border border-gray-200 p-4 text-neutral-800',
-							{
-								'border-neutral-600 text-gray-300': darkTheme
-							}
-						)}
+			{sortedArray.map(({ id, title, date }) => {
+				/* Reducing Title length to fit available space */
+				const titleToDisplay =
+					title?.length < 20 ? title : `${title.substring(0, 30)}...`;
+
+				return (
+					<Link
+						to={`/${id}`}
+						key={id}
 					>
-						<h2 className='text-lg font-bold'>{title}</h2>
-						<p className='mt-1 text-sm opacity-70'>{date}</p>
-					</li>
-				</Link>
-			))}
+						<li
+							className={cn(
+								'rounded-lg border border-gray-200 p-4 text-neutral-800',
+								{
+									'border-neutral-600 text-gray-300': darkTheme
+								}
+							)}
+						>
+							<h2 className='text-lg font-bold'>{titleToDisplay}</h2>
+							<p className='mt-1 text-sm opacity-70'>{date}</p>
+						</li>
+					</Link>
+				);
+			})}
 		</ul>
 	);
 };

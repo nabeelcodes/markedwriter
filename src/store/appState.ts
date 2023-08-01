@@ -7,7 +7,7 @@ export const darkModeAtom = atomWithStorage<boolean>('darkMode', false);
 /* App wide state to contain and monitor markdown data */
 type appDataType = {
 	id: string;
-	title: string | undefined;
+	title: string;
 	content: string;
 	date: string;
 }[];

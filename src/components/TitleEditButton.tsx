@@ -47,7 +47,10 @@ export const TitleEditButton = () => {
 		const indexOfCurrentPost = valueOfAppData.findIndex(
 			(element) => element?.id === currentPost?.id
 		);
-		valueOfAppData[indexOfCurrentPost].title = valueOfTitle;
+		if (valueOfAppData[indexOfCurrentPost].title && valueOfTitle) {
+			/* Checking for both values to NOT be undefined */
+			valueOfAppData[indexOfCurrentPost].title = valueOfTitle;
+		}
 
 		/* Setting all states */
 		setAppData(valueOfAppData);
@@ -62,9 +65,7 @@ export const TitleEditButton = () => {
 		>
 			<RadixDialog.Trigger asChild>
 				<button
-					className={cn('absolute right-0 top-0 m-2 rounded border p-2', {
-						'border-neutral-600': darkTheme
-					})}
+					className='h-full px-4 py-3 xl:py-3'
 					onClick={() => handleDisableStateForRenameButton()}
 				>
 					<EditIconSVG />
