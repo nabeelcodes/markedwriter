@@ -16,16 +16,14 @@ export const PageTitle = () => {
 	return (
 		<article
 			className={cn(
-				'mt-4 flex items-center justify-between gap-2 rounded border border-gray-200 py-2 pl-4 text-lg font-bold xl:fixed xl:left-1/2 xl:top-0 xl:mt-[0.55rem] xl:w-[28rem] xl:max-w-lg xl:-translate-x-1/2 xl:py-0',
+				'mt-4 flex items-center justify-between rounded border border-gray-200 py-1 pl-4 text-lg font-bold xl:fixed xl:left-1/2 xl:top-0 xl:mt-[0.55rem] xl:w-[28rem] xl:max-w-lg xl:-translate-x-1/2 xl:py-0',
 				{
 					'border-neutral-600': darkTheme
 				}
 			)}
 		>
-			<span className='xl:max-w-md'>
-				{titleToDisplay && titleToDisplay?.length < 20
-					? titleToDisplay
-					: `${titleToDisplay && titleToDisplay.substring(0, 40)}...`}
+			<span className='overflow-x-auto whitespace-nowrap'>
+				{titleToDisplay}
 			</span>
 
 			<TitleEditButton />

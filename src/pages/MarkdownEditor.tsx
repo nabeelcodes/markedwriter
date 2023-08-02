@@ -30,7 +30,6 @@ export const MarkdownEditor = () => {
 
 			<textarea
 				className='mt-4 h-28 w-80 bg-red-100 p-2 outline-none'
-				autoFocus
 				name='editor'
 				autoComplete='off'
 				spellCheck='true'

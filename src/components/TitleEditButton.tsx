@@ -1,81 +1,41 @@
-import * as RadixDialog from '@radix-ui/react-dialog';
+import {
+	Root,
+	Trigger,
+	Portal,
+	Overlay,
+	Content,
+	Title
+} from '@radix-ui/react-dialog';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
 import { useAtom } from 'jotai';
-import { appDataAtom, buttonStateAtom, darkModeAtom } from '../store/appState';
+import { appDataAtom, darkModeAtom, dialogStateAtom } from '../store/appState';
 import { EditIconSVG } from '../assets/EditIconSVG';
+import { TitleInput } from './TitleInput';
 import { cn } from '../utilities/classNameHelper';
 
 export const TitleEditButton = () => {
 	const { id } = useParams();
+	const [appData] = useAtom(appDataAtom);
 	const [darkTheme] = useAtom(darkModeAtom);
-	const [appData, setAppData] = useAtom(appDataAtom);
-	const [buttonDisabled, setButtonDisabled] = useAtom(buttonStateAtom);
+	const [openRadixDialog, setOpenRadixDialog] = useAtom(dialogStateAtom);
 	/* Find the Post corresponding to the current page */
 	const currentPost = appData?.find((post) => post.id === id);
-	/* Maintaining a state for the modification of Post title */
-	const [valueOfTitle, setValueOfTitle] = useState(currentPost?.title);
-	/* Maintaining a state for open/close of RadixDialog */
-	const [openRadixDialog, setOpenRadixDialog] = useState(false);
-
-	const handleDisableStateForRenameButton = () => {
-		if (valueOfTitle !== currentPost?.title) {
-			setButtonDisabled(false);
-		} else {
-			setButtonDisabled(true);
-		}
-	};
-
-	const handleChangeForTitleRename = (
-		e: React.ChangeEvent<HTMLInputElement>
-	) => {
-		/* Checking if Post title and edited value are same,
-    If YES then disabled RENAME button */
-		if (e.target.value !== currentPost?.title) {
-			setButtonDisabled(false);
-		} else {
-			setButtonDisabled(true);
-		}
-
-		setValueOfTitle(e?.target?.value);
-	};
-
-	const handleFormSubmit = (e: React.FormEvent) => {
-		e.preventDefault();
-
-		const valueOfAppData = [...appData];
-		const indexOfCurrentPost = valueOfAppData.findIndex(
-			(element) => element?.id === currentPost?.id
-		);
-		if (valueOfAppData[indexOfCurrentPost].title && valueOfTitle) {
-			/* Checking for both values to NOT be undefined */
-			valueOfAppData[indexOfCurrentPost].title = valueOfTitle;
-		}
-
-		/* Setting all states */
-		setAppData(valueOfAppData);
-		setButtonDisabled(true);
-		setOpenRadixDialog(false);
-	};
 
 	return (
-		<RadixDialog.Root
+		<Root
 			open={openRadixDialog}
 			onOpenChange={setOpenRadixDialog}
 		>
-			<RadixDialog.Trigger asChild>
-				<button
-					className='h-full px-4 py-3 xl:py-3'
-					onClick={() => handleDisableStateForRenameButton()}
-				>
+			<Trigger asChild>
+				<button className='h-full px-4 py-3 xl:py-3'>
 					<EditIconSVG />
 				</button>
-			</RadixDialog.Trigger>
+			</Trigger>
 
-			<RadixDialog.Portal>
-				<RadixDialog.Overlay className='fixed inset-0 backdrop-blur-[2px] data-[state=open]:animate-overlayShow' />
+			<Portal>
+				<Overlay className='fixed inset-0 backdrop-blur-[2px] data-[state=open]:animate-overlayShow' />
 
-				<RadixDialog.Content
+				<Content
 					className={cn(
 						'fixed left-[50%] top-[50%] w-max max-w-[540px] translate-x-[-50%] translate-y-[-50%] rounded-lg border border-gray-100 bg-white p-6 text-neutral-800 shadow-lg focus:outline-none data-[state=open]:animate-contentShow',
 						{
@@ -83,56 +43,16 @@ export const TitleEditButton = () => {
 						}
 					)}
 				>
-					<RadixDialog.Title className='mb-6 text-center text-xl font-bold'>
+					<Title className='mb-6 text-center text-xl font-bold'>
 						Rename File
-					</RadixDialog.Title>
+					</Title>
 
-					<form onSubmit={handleFormSubmit}>
-						<input
-							className={cn(
-								'w-[300px] min-w-max rounded border bg-white px-4 py-2 outline-none focus:border-gray-500 md:w-[500px]',
-								{
-									'bg-neutral-800 focus:border-gray-100': darkTheme
-								}
-							)}
-							autoFocus
-							id='title'
-							name='title'
-							type='text'
-							aria-label='input box to rename file title'
-							value={valueOfTitle}
-							onChange={handleChangeForTitleRename}
-						/>
-
-						<div className='mt-4 flex items-center justify-between gap-4 md:w-[500px]'>
-							<RadixDialog.Close asChild>
-								<button
-									className='w-full rounded border py-2 font-bold'
-									aria-label='Close Button'
-									type='button'
-									onClick={() => setValueOfTitle(currentPost?.title)}
-								>
-									Cancel
-								</button>
-							</RadixDialog.Close>
-
-							<button
-								className={cn(
-									'w-full rounded border bg-neutral-800 py-2 font-bold text-gray-300 disabled:bg-neutral-500',
-									{
-										'bg-gray-300 text-neutral-800': darkTheme
-									}
-								)}
-								type='submit'
-								aria-label='Rename Button'
-								disabled={buttonDisabled}
-							>
-								Rename
-							</button>
-						</div>
-					</form>
-				</RadixDialog.Content>
-			</RadixDialog.Portal>
-		</RadixDialog.Root>
+					<TitleInput
+						currentPageTitle={currentPost?.title}
+						currentPageId={currentPost?.id}
+					/>
+				</Content>
+			</Portal>
+		</Root>
 	);
 };
