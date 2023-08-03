@@ -30,6 +30,7 @@ export const NavItemThemeToggle = forwardRef<HTMLLIElement>(
 				<button
 					className='flex w-full items-center justify-between'
 					onClick={handleDarkMode}
+					aria-label='Theme Toggle Button'
 				>
 					{darkTheme ? <DayIcon /> : <NightIcon />}
 					<span className='md:hidden'>{darkTheme ? 'Light' : 'Dark'}</span>

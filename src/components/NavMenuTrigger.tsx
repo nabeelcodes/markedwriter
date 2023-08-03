@@ -6,7 +6,7 @@ export const NavMenuTrigger = forwardRef<HTMLButtonElement>(
 		return (
 			<button
 				className={`md:hidden ${cssStyles.triggerButton}`}
-				aria-labelledby='Navigation Menu trigger'
+				aria-label='Navigation Menu trigger'
 				ref={forwardedRef}
 				type='button'
 				{...props}

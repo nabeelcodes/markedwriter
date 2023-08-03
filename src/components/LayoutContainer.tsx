@@ -9,7 +9,7 @@ export const LayoutContainer = ({ children }: LayoutContainerProps) => {
 	return (
 		<div
 			className='relative flex min-h-screen flex-col'
-			aria-labelledby='App wrapper'
+			aria-label='App wrapper'
 		>
 			<Header />
 

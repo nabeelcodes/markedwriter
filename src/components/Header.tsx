@@ -11,16 +11,14 @@ export const Header = () => {
 	return (
 		<div
 			className='border-b border-gray-200 bg-white px-5 dark:border-neutral-600 dark:bg-neutral-800'
-			aria-labelledby='Header wrapper'
+			aria-label='Header wrapper'
 		>
 			<header className='container2000 relative flex h-16 items-center justify-between'>
-				<Link to='/'>
-					<div
-						className='cursor-pointer'
-						aria-labelledby='Website Logo container'
-					>
-						{darkTheme ? <AppLogoLight /> : <AppLogoDark />}
-					</div>
+				<Link
+					to='/'
+					aria-label='Website logo'
+				>
+					{darkTheme ? <AppLogoLight /> : <AppLogoDark />}
 				</Link>
 
 				<NavBar />
