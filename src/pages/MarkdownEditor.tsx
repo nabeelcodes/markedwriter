@@ -1,12 +1,10 @@
 import { useAtom } from 'jotai';
 import { useParams } from 'react-router-dom';
 import { PageTitle } from '../components/PageTitle';
-import { appDataAtom, darkModeAtom } from '../store/appState';
-import { cn } from '../utilities/classNameHelper';
+import { appDataAtom } from '../store/appState';
 
 export const MarkdownEditor = () => {
 	const { id } = useParams();
-	const [darkTheme] = useAtom(darkModeAtom);
 	const [appData, setAppData] = useAtom(appDataAtom);
 	/* Find the Post corresponding to the current page */
 	const currentPost = appData?.find((post) => post.id === id);
@@ -21,11 +19,7 @@ export const MarkdownEditor = () => {
 	};
 
 	return (
-		<section
-			className={cn('font-sans text-neutral-800', {
-				'text-gray-300': darkTheme
-			})}
-		>
+		<section className='font-sans text-neutral-800 dark:text-gray-300'>
 			<PageTitle />
 
 			<textarea

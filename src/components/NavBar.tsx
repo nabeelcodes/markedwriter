@@ -1,7 +1,8 @@
+import React from 'react';
 import { NavMenuMobile } from './NavMenuMobile';
 import { NavMenuDesktop } from './NavMenuDesktop';
 
-export const NavBar = () => {
+export const NavBar = React.memo(() => {
 	return (
 		<>
 			<NavMenuMobile />
@@ -9,4 +10,4 @@ export const NavBar = () => {
 			<NavMenuDesktop />
 		</>
 	);
-};
+});

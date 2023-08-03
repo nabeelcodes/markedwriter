@@ -1,18 +1,10 @@
-import { useAtom } from 'jotai';
-import { darkModeAtom } from '../store/appState';
-import { cn } from '../utilities/classNameHelper';
-
 export const EditIconSVG = () => {
-	const [darkTheme] = useAtom(darkModeAtom);
-
 	return (
 		<svg
 			width='18'
 			height='19'
 			viewBox='0 0 18 19'
-			className={cn('fill-neutral-800', {
-				'fill-gray-300': darkTheme
-			})}
+			className='fill-neutral-800 dark:fill-gray-300'
 			xmlns='http://www.w3.org/2000/svg'
 		>
 			<mask

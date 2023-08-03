@@ -1,23 +1,14 @@
-import { Link } from 'react-router-dom';
-import { useMemo } from 'react';
 import { useAtom } from 'jotai';
-import { appDataAtom, darkModeAtom } from '../store/appState';
-import { cn } from '../utilities/classNameHelper';
+import { appDataAtom } from '../store/appState';
+import { PostItem } from './PostItem';
 
 export const PostList = () => {
-	const [darkTheme] = useAtom(darkModeAtom);
 	const [appData, setAppData] = useAtom(appDataAtom);
 
-	/* Reversing `appData` array to render posts in correct order */
-	const sortedArray = useMemo(() => {
-		const clonedArray = [...appData];
-		return clonedArray.reverse();
-	}, [appData]);
-
 	return (
-		<ul className='mt-6 flex flex-col gap-y-4 rounded-lg'>
+		<section>
 			<button
-				className='rounded-md bg-red-500 p-3 text-gray-100'
+				className='mt-6 w-full rounded-md bg-red-500 p-3 text-gray-100 hover:opacity-90'
 				onClick={() => {
 					setAppData([]);
 				}}
@@ -25,30 +16,22 @@ export const PostList = () => {
 				Delete All Posts
 			</button>
 
-			{sortedArray.map(({ id, title, date }) => {
-				/* Reducing Title length to fit available space */
-				const titleToDisplay =
-					title?.length < 20 ? title : `${title.substring(0, 30)}...`;
+			<ul className='mt-4 flex flex-col gap-y-4 rounded-lg'>
+				{appData.map(({ id, title, date }) => {
+					/* Reducing Title length to fit available space */
+					const titleToDisplay =
+						title?.length < 20 ? title : `${title.substring(0, 30)}...`;
 
-				return (
-					<Link
-						to={`/${id}`}
-						key={id}
-					>
-						<li
-							className={cn(
-								'rounded-lg border border-gray-200 p-4 text-neutral-800',
-								{
-									'border-neutral-600 text-gray-300': darkTheme
-								}
-							)}
-						>
-							<h2 className='text-lg font-bold'>{titleToDisplay}</h2>
-							<p className='mt-1 text-sm opacity-70'>{date}</p>
-						</li>
-					</Link>
-				);
-			})}
-		</ul>
+					return (
+						<PostItem
+							key={id}
+							postId={id}
+							dateToDisplay={date}
+							titleToDisplay={titleToDisplay}
+						/>
+					);
+				})}
+			</ul>
+		</section>
 	);
 };

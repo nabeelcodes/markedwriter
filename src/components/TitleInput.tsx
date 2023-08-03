@@ -1,7 +1,7 @@
 import { Close } from '@radix-ui/react-dialog';
 import { useAtom } from 'jotai';
 import { useState } from 'react';
-import { appDataAtom, darkModeAtom, dialogStateAtom } from '../store/appState';
+import { appDataAtom, dialogStateAtom } from '../store/appState';
 import { cn } from '../utilities/classNameHelper';
 
 type titleInputProps = {
@@ -13,7 +13,6 @@ export const TitleInput = ({
 	currentPageTitle,
 	currentPageId
 }: titleInputProps) => {
-	const [darkTheme] = useAtom(darkModeAtom);
 	const [appData, setAppData] = useAtom(appDataAtom);
 	const [, setOpenRadixDialog] = useAtom(dialogStateAtom);
 	/* Maintaining a local state for the modification of
@@ -87,13 +86,15 @@ export const TitleInput = ({
 				onChange={handleChangeForTitleRename}
 			/>
 
-			{blankTitle && (
-				<span className='mt-1 block text-xs font-bold text-red-500'>
-					* Title cannot be empty or only spaces
-				</span>
-			)}
+			<span
+				className={cn('mt-1 block text-xs font-bold text-red-500 opacity-0', {
+					'opacity-100': blankTitle
+				})}
+			>
+				* Title cannot be empty or only spaces
+			</span>
 
-			<div className='mt-4 flex items-center justify-between gap-4 md:w-[500px]'>
+			<div className='mt-2 flex items-center justify-between gap-4 md:w-[500px]'>
 				<Close asChild>
 					<button
 						className='w-full rounded border py-2 font-bold'
@@ -106,12 +107,7 @@ export const TitleInput = ({
 				</Close>
 
 				<button
-					className={cn(
-						'w-full rounded border bg-neutral-800 py-2 font-bold text-gray-300 disabled:bg-neutral-500',
-						{
-							'bg-gray-300 text-neutral-800': darkTheme
-						}
-					)}
+					className='w-full rounded border bg-neutral-800 py-2 font-bold text-gray-300 disabled:bg-neutral-500 dark:bg-gray-300 dark:text-neutral-800'
 					type='submit'
 					aria-label='Rename Button'
 					disabled={buttonDisabled}
