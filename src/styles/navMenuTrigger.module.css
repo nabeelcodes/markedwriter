@@ -1,68 +1,68 @@
 .hamburger {
-	height: 1.5em;
-	width: 1.8em;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
+  height: 1.5em;
+  width: 1.8em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .line {
-	height: 5px;
-	display: block;
-	border-radius: 10px;
-	-webkit-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
+  height: 5px;
+  display: block;
+  border-radius: 10px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .line:nth-child(1),
 .line:nth-child(3) {
-	width: 50%;
+  width: 50%;
 }
 
 .line:nth-child(2) {
-	width: 100%;
+  width: 100%;
 }
 
 .line:nth-child(3) {
-	transform: translateX(100%);
+  transform: translateX(100%);
 }
 
-.triggerButton[data-state='open'] .hamburger {
-	-webkit-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
-	-webkit-transition-delay: 0.6s;
-	-o-transition-delay: 0.6s;
-	transition-delay: 0.6s;
-	-webkit-transform: rotate(45deg);
-	-ms-transform: rotate(45deg);
-	-o-transform: rotate(45deg);
-	transform: rotate(45deg);
+.triggerButton[data-state="open"] .hamburger {
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition-delay: 0.6s;
+  -o-transition-delay: 0.6s;
+  transition-delay: 0.6s;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
-.triggerButton[data-state='open'] .line:nth-child(2) {
-	width: 0%;
+.triggerButton[data-state="open"] .line:nth-child(2) {
+  width: 0%;
 }
 
-.triggerButton[data-state='open'] .line:nth-child(1),
-.triggerButton[data-state='open'] .line:nth-child(3) {
-	-webkit-transition-delay: 0.3s;
-	-o-transition-delay: 0.3s;
-	transition-delay: 0.3s;
-	width: 100%;
+.triggerButton[data-state="open"] .line:nth-child(1),
+.triggerButton[data-state="open"] .line:nth-child(3) {
+  -webkit-transition-delay: 0.3s;
+  -o-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+  width: 100%;
 }
 
-.triggerButton[data-state='open'] .line:nth-child(1) {
-	-webkit-transform: translateY(11px);
-	-ms-transform: translateY(11px);
-	-o-transform: translateY(11px);
-	transform: translateY(11px);
+.triggerButton[data-state="open"] .line:nth-child(1) {
+  -webkit-transform: translateY(11px);
+  -ms-transform: translateY(11px);
+  -o-transform: translateY(11px);
+  transform: translateY(11px);
 }
 
-.triggerButton[data-state='open'] .line:nth-child(3) {
-	-webkit-transform: translateY(-8px) rotate(90deg);
-	-ms-transform: translateY(-8px) rotate(90deg);
-	-o-transform: translateY(-8px) rotate(90deg);
-	transform: translateY(-8px) rotate(90deg);
+.triggerButton[data-state="open"] .line:nth-child(3) {
+  -webkit-transform: translateY(-8px) rotate(90deg);
+  -ms-transform: translateY(-8px) rotate(90deg);
+  -o-transform: translateY(-8px) rotate(90deg);
+  transform: translateY(-8px) rotate(90deg);
 }

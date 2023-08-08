@@ -1,5 +1,5 @@
-import clsx, { ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import clsx, { ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 /*
 This function merges functionality from clsx and twMerge
@@ -8,5 +8,5 @@ twMerge: used for replacing repetitive styles
 */
 
 export const cn = (...classes: ClassValue[]) => {
-	return twMerge(clsx(...classes));
+  return twMerge(clsx(...classes));
 };
