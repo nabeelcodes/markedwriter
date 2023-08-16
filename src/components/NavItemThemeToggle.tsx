@@ -1,23 +1,29 @@
 import { useAtom } from "jotai";
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 import { DayIcon } from "../assets/DayIconSVG";
 import { NightIcon } from "../assets/NightIconSVG";
-import { darkModeAtom } from "../store/appState";
+import { themeAtom } from "../store/appState";
 
 export const NavItemThemeToggle = forwardRef<HTMLLIElement>(
   (props, forwardedRef) => {
     const htmlTagCLasslist = document.documentElement.classList;
-    const [darkTheme, setDarkTheme] = useAtom(darkModeAtom);
+    const [appTheme, setAppTheme] = useAtom(themeAtom);
 
-    const handleDarkMode = () => {
-      if (htmlTagCLasslist.contains("light")) {
-        htmlTagCLasslist.add("dark");
+    useEffect(() => {
+      if (appTheme === "dark") {
         htmlTagCLasslist.remove("light");
-        setDarkTheme((prevState: boolean) => !prevState);
+        htmlTagCLasslist.add("dark");
       } else {
         htmlTagCLasslist.remove("dark");
         htmlTagCLasslist.add("light");
-        setDarkTheme((prevState: boolean) => !prevState);
+      }
+    }, [appTheme, htmlTagCLasslist]);
+
+    const handleDarkMode = () => {
+      if (htmlTagCLasslist.contains("light")) {
+        setAppTheme("dark");
+      } else {
+        setAppTheme("light");
       }
     };
 
@@ -27,8 +33,10 @@ export const NavItemThemeToggle = forwardRef<HTMLLIElement>(
           className="flex w-full items-center justify-between"
           onClick={handleDarkMode}
           aria-label="Theme Toggle Button">
-          {darkTheme ? <DayIcon /> : <NightIcon />}
-          <span className="md:hidden">{darkTheme ? "Light" : "Dark"}</span>
+          {appTheme === "dark" ? <DayIcon /> : <NightIcon />}
+          <span className="md:hidden">
+            {appTheme === "dark" ? "Light" : "Dark"}
+          </span>
         </button>
       </li>
     );

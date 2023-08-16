@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
-import { darkModeAtom } from "../store/appState";
+import { themeAtom } from "../store/appState";
 import { AppLogoDark } from "../assets/AppLogoDarkSVG";
 import { AppLogoLight } from "../assets/AppLogoLightSVG";
 import { NavBar } from "./NavBar";
 
 export const Header = () => {
-  const [darkTheme] = useAtom(darkModeAtom);
+  const [appTheme] = useAtom(themeAtom);
 
   return (
     <div
@@ -14,7 +14,7 @@ export const Header = () => {
       aria-label="Header wrapper">
       <header className="container2000 relative flex h-16 items-center justify-between">
         <Link to="/" aria-label="Website logo">
-          {darkTheme ? <AppLogoLight /> : <AppLogoDark />}
+          {appTheme === "dark" ? <AppLogoLight /> : <AppLogoDark />}
         </Link>
 
         <NavBar />

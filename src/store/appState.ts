@@ -6,11 +6,8 @@ for ONLY 2 COMPONENTS:
 	- For rendering AppLogo in Header.tsx
 	- As an internal state for NavItemThemeToggle.tsx
 */
-const htmlTagCLasslist = document.documentElement.classList;
-export const darkModeAtom = atomWithStorage<boolean>(
-  "darkMode",
-  htmlTagCLasslist.contains("dark")
-);
+// const htmlTagCLasslist = document.documentElement.classList;
+export const themeAtom = atomWithStorage<"light" | "dark">("theme", "light");
 
 /* State for open/close of RadixDialog */
 export const dialogStateAtom = atom<boolean>(false);
