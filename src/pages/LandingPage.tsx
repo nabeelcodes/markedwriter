@@ -26,7 +26,7 @@ export const LandingPage = () => {
   };
 
   return (
-    <div className="mx-auto max-w-6xl">
+    <div className="mx-5 max-w-6xl xl:mx-auto">
       <section className="items-center justify-between pt-10 md:flex">
         <article>
           <h1 className="text-3xl font-bold">All Files</h1>

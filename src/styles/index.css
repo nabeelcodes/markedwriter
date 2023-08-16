@@ -19,6 +19,10 @@
 		ring utilities for a11y */
     @apply focus:outline-none focus:ring focus:ring-green-500 focus:ring-offset-2;
   }
+
+  .disable-scrollbar::-webkit-scrollbar {
+    width: 0px;
+  }
 }
 
 /* SCROLL-BAR CSS : START */

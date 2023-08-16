@@ -26,12 +26,12 @@ export const NavItemShortcuts = () => {
       <Portal>
         <Overlay className="fixed inset-0 backdrop-blur-[2px] data-[state=open]:animate-overlayShow" />
 
-        <Content className="fixed left-[50%] top-[50%] w-max max-w-[540px] translate-x-[-50%] translate-y-[-50%] rounded-lg border border-gray-100 bg-white px-6 py-6 text-neutral-800 shadow-lg focus:outline-none data-[state=open]:animate-contentShow dark:bg-neutral-800 dark:text-gray-300">
+        <Content className="fixed left-[50%] top-[50%] w-max max-w-[540px] translate-x-[-50%] translate-y-[-50%] rounded-lg border border-gray-100 bg-white px-6 py-6 text-neutral-800 shadow-lg focus:outline-none data-[state=open]:animate-contentShow dark:border-gray-600 dark:bg-neutral-800 dark:text-gray-300">
           <Title className="mb-4 border-b-2 pb-2 text-2xl font-bold">
             Keyboard Shortcuts
           </Title>
 
-          <Description className="font-sans">
+          <Description>
             To increase your productivity when working with markdown, you can
             use the following keyboard shortcuts by pressing{" "}
             <code className="rounded border px-1 font-mono">Cmd + Ctrl</code> on

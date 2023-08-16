@@ -13,7 +13,7 @@ export const NavMenuMobile = () => {
 
       <RadixDropdownMenu.Portal>
         <RadixDropdownMenu.Content sideOffset={10} align="end" asChild>
-          <nav className="rounded-md border bg-white p-4 font-sans text-gray-950 shadow-md dark:border-gray-300 dark:bg-neutral-800 dark:text-gray-300">
+          <nav className="rounded-md border bg-white p-4 text-gray-950 shadow-md dark:border-gray-600 dark:bg-neutral-800 dark:text-gray-300 ">
             <ul className="space-y-3">
               <RadixDropdownMenu.Item
                 onSelect={(event) => event.preventDefault()}
