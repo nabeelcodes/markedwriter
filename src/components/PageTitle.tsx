@@ -12,7 +12,7 @@ export const PageTitle = () => {
   const titleToDisplay = currentPost?.title;
 
   return (
-    <section className="mx-5 mt-4 flex items-center justify-between rounded border border-gray-200 py-1 pl-4 text-lg font-bold dark:border-neutral-600 xl:fixed xl:left-1/2 xl:top-0 xl:mx-0 xl:mt-[0.55rem] xl:w-[28rem] xl:max-w-lg xl:-translate-x-1/2 xl:py-0">
+    <section className="mx-5 mt-4 flex items-center justify-between rounded border border-gray-200 py-1 pl-4 text-lg font-bold dark:border-neutral-600 xl:fixed xl:left-1/2 xl:top-0 xl:mx-0 xl:mt-[0.55rem] xl:w-[30rem] xl:max-w-lg xl:-translate-x-1/2 xl:py-0">
       <span className="overflow-x-auto whitespace-nowrap">
         {titleToDisplay}
       </span>
