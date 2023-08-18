@@ -2,10 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LayoutContainer } from "./components/LayoutContainer";
 import { LandingPage } from "./pages/LandingPage";
 import { MarkdownEditor } from "./pages/MarkdownEditor";
-
-const NoMatch = () => {
-  return <h1>404 Not Found</h1>;
-};
+import { NoMatch } from "./components/NoMatch";
 
 export default function App() {
   return (

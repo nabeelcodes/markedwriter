@@ -24,7 +24,7 @@ export const MarkdownInput = ({ pageId }: markdownInputProps) => {
   return (
     <textarea
       className={cn(
-        "grow basis-[55%]",
+        "grow basis-[50%]",
         "font-mono text-gray-600",
         "mx-auto max-w-lg px-6 py-4 md:max-w-full",
         "disable-scrollbar resize-none",

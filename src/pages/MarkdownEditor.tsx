@@ -3,12 +3,14 @@ import { PageTitle } from "../components/PageTitle";
 import { MarkdownInput } from "../components/MarkdownInput";
 import { RenderedMarkdown } from "../components/RenderedMarkdown";
 import { cn } from "../utilities/classNameHelper";
+import { useIdValidator } from "../hooks/useIdValidator";
 
 export const MarkdownEditor = () => {
   const { id } = useParams();
+  useIdValidator(id);
 
   return (
-    <>
+    <div className="container2000">
       <PageTitle />
 
       <section
@@ -23,7 +25,12 @@ export const MarkdownEditor = () => {
         aria-label="wrapper for input box">
         {/* Desktop Sidebar */}
         <aside
-          className={cn("hidden xl:block", "w-20 grow", " bg-neutral-600")}>
+          className={cn(
+            "hidden xl:block",
+            "grow p-5",
+            "dark:bg-neutral-800",
+            "border-r border-gray-200 dark:border-neutral-600"
+          )}>
           Sidebar
         </aside>
 
@@ -31,6 +38,6 @@ export const MarkdownEditor = () => {
 
         <RenderedMarkdown pageId={id} />
       </section>
-    </>
+    </div>
   );
 };
