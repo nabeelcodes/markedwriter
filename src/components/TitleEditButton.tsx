@@ -30,7 +30,7 @@ export const TitleEditButton = () => {
       <Portal>
         <Overlay className="fixed inset-0 backdrop-blur-[2px] data-[state=open]:animate-overlayShow" />
 
-        <Content className="frosted-glass-bg fixed left-[50%] top-[50%] w-max max-w-[540px] translate-x-[-50%] translate-y-[-50%] rounded-lg border border-gray-100 p-6 text-neutral-800 shadow-lg focus:outline-none data-[state=open]:animate-contentShow dark:border-gray-600 dark:text-gray-300">
+        <Content className="md:frosted-glass-bg fixed left-[50%] top-[50%] w-max max-w-[540px] translate-x-[-50%] translate-y-[-50%] rounded-lg border border-gray-100 p-6 text-neutral-800 shadow-lg focus:outline-none data-[state=open]:animate-contentShow dark:border-gray-600 dark:text-gray-300">
           <Title className="mb-6 text-center text-xl font-bold">
             Rename File
           </Title>

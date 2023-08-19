@@ -15,7 +15,7 @@ export const PageTitle = () => {
   return (
     <section
       className={cn(
-        "frosted-glass-bg",
+        "md:frosted-glass-bg",
         "sticky top-20",
         "mx-5 mt-4 py-1 pl-4",
         "rounded border text-lg font-bold",

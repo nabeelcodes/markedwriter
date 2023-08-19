@@ -10,7 +10,7 @@ export const Header = () => {
 
   return (
     <div
-      className="frosted-glass-bg sticky top-0 border-b border-gray-200 px-5 dark:border-neutral-600"
+      className="md:frosted-glass-bg sticky top-0 border-b border-gray-200 px-5 dark:border-neutral-600"
       aria-label="Header wrapper">
       <header className="container2000 relative flex h-16 items-center justify-between">
         <Link to="/" aria-label="Website logo">
