@@ -1,19 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
 import { LayoutContainer } from "./components/LayoutContainer";
+import { NoMatch } from "./pages/NoMatch";
 import { LandingPage } from "./pages/LandingPage";
 import { MarkdownEditor } from "./pages/MarkdownEditor";
-import { NoMatch } from "./pages/NoMatch";
+
+const appRouter = createBrowserRouter(
+  createRoutesFromElements(
+    <Route errorElement={<NoMatch />}>
+      <Route element={<LayoutContainer />}>
+        <Route index element={<LandingPage />} />
+        <Route path="/:id" element={<MarkdownEditor />} />
+      </Route>
+    </Route>
+  )
+);
 
 export default function App() {
-  return (
-    <Router>
-      <LayoutContainer>
-        <Routes>
-          <Route index element={<LandingPage />} />
-          <Route path="/:id" element={<MarkdownEditor />} />
-          <Route path="*" element={<NoMatch />} />
-        </Routes>
-      </LayoutContainer>
-    </Router>
-  );
+  return <RouterProvider router={appRouter} />;
 }
