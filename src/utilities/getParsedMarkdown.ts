@@ -23,6 +23,21 @@ export const getParsedMarkdown: getParsedMarkdownProps = (
 
   const parsedContent = unified()
     .use(remarkParse)
+    // .use(() => {
+    //   return (tree) => {
+    //     tree.children.map((node) => {
+    //       node.children && console.log(node);
+
+    //       node.children &&
+    //         node.children.forEach((element) => {
+    //           if (element.type === "inlineCode") {
+    //             // const id = element.children[0].value;
+    //             // console.log(element);
+    //           }
+    //         });
+    //     });
+    //   };
+    // })
     .use(remarkRehype, {
       allowDangerousHtml: stateVar,
     })

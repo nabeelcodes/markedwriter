@@ -70,7 +70,7 @@ export const TitleInput = React.memo(
       <form onSubmit={handleFormSubmit}>
         <input
           className={cn(
-            "w-[300px] min-w-max rounded border bg-white px-4 py-2 outline-none focus:border-gray-500 dark:border-gray-500 dark:bg-neutral-800 dark:focus:border-gray-300 md:w-[500px]",
+            "w-[300px] min-w-max rounded border bg-inherit px-4 py-2 outline-none focus:border-gray-500 dark:border-gray-500  dark:focus:border-gray-300 md:w-[500px]",
             {
               "border-red-600 focus:border-red-600 dark:border-red-600 dark:focus:border-red-600":
                 blankTitle,

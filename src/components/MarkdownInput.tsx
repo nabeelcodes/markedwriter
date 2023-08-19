@@ -24,13 +24,14 @@ export const MarkdownInput = ({ pageId }: markdownInputProps) => {
   return (
     <textarea
       className={cn(
-        "grow basis-[50%]",
-        "font-mono text-gray-600",
-        "mx-auto max-w-lg px-6 py-4 md:max-w-full",
+        "grow basis-1/2",
+        "font-mono text-gray-400",
+        "mx-auto max-w-lg p-8 md:max-w-full",
         "disable-scrollbar resize-none",
         "border-none outline-none focus:outline-none",
-        "dark:bg-neutral-800 dark:text-gray-300"
+        "dark:bg-neutral-800 dark:text-gray-500"
       )}
+      id="editor"
       name="editor"
       autoComplete="off"
       spellCheck="true"

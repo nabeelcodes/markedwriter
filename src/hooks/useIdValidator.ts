@@ -10,7 +10,8 @@ export const useIdValidator = (id: string | undefined) => {
   /* Redirect if :id is invalid or random */
   useEffect(() => {
     const isValidId = appData.some((post) => post.id === id);
-    if (!isValidId && id) {
+
+    if (!isValidId && id && appData.length > 0) {
       navigate("/");
     }
   }, [appData, id, navigate]);

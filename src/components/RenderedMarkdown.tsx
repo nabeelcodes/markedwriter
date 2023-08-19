@@ -20,16 +20,19 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
     <section
       className={cn(
         "hidden md:block",
-        "grow basis-[50%] py-8 xl:p-10",
+        "shrink grow basis-1/2 py-8 xl:shrink-0 xl:p-10",
         "border-l border-gray-200 dark:border-neutral-600"
       )}>
       <article
         dangerouslySetInnerHTML={{
-          __html: parsedMarkdown ?? "Write some Markdown in the left panel",
+          __html: parsedMarkdown ?? "",
         }}
         className={cn(
-          "mx-auto max-w-xs lg:max-w-sm xl:max-w-none",
-          "prose prose-neutral dark:prose-invert"
+          "mx-8 max-w-xs md:mx-auto lg:max-w-sm xl:max-w-none",
+          "prose prose-violet dark:prose-invert",
+          "prose-a:border-b-2 prose-a:border-violet-500 prose-a:no-underline",
+          "prose-code:rounded prose-code:bg-green-200 prose-code:px-2 prose-code:py-1 dark:prose-code:text-neutral-800",
+          "[&>pre>code]:bg-transparent dark:[&>pre>code]:text-gray-300"
         )}></article>
     </section>
   );

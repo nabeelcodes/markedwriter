@@ -23,9 +23,13 @@
   .disable-scrollbar::-webkit-scrollbar {
     width: 0px;
   }
+
+  .frosted-glass-bg {
+    @apply bg-white bg-opacity-20 backdrop-blur-md backdrop-filter dark:bg-neutral-800 dark:bg-opacity-60;
+  }
 }
 
-/* SCROLL-BAR CSS : START */
+/* CUSTOM SCROLL-BAR CSS : START */
 ::-webkit-scrollbar {
   width: 7px;
   height: 4px;
@@ -43,4 +47,4 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #606060;
 }
-/* SCROLL-BAR CSS : END */
+/* CUSTOM SCROLL-BAR CSS : END */

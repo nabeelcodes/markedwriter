@@ -14,7 +14,7 @@ export const LandingPage = () => {
     const newPost = {
       id: slug,
       title: "Project Title",
-      content: " ",
+      content: "",
       date:
         String(new Date()).substring(4, 10) +
         "," +
