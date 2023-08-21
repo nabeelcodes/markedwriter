@@ -36,7 +36,8 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
           "prose-code:rounded prose-code:bg-green-200 prose-code:px-2 prose-code:py-1 dark:prose-code:text-neutral-800",
           "prose-code:before:content-[''] prose-code:after:content-['']",
           // prose - code-block(pre > code) modifications 👇
-          "[&>pre>code]:bg-transparent dark:[&>pre>code]:text-gray-300"
+          "[&>pre>code]:bg-transparent dark:[&>pre>code]:text-gray-300",
+          "[&>pre>code]:px-0"
         )}></article>
     </section>
   );

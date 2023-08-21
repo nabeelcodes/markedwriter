@@ -11,6 +11,7 @@ import { useAtom } from "jotai";
 import { appDataAtom, dialogStateAtom } from "../store/appState";
 import { EditIconSVG } from "../assets/EditIconSVG";
 import { TitleInput } from "./TitleInput";
+import { cn } from "../utilities/classNameHelper";
 
 export const TitleEditButton = () => {
   const { id } = useParams();
@@ -28,9 +29,19 @@ export const TitleEditButton = () => {
       </Trigger>
 
       <Portal>
-        <Overlay className="fixed inset-0 backdrop-blur-[2px] data-[state=open]:animate-overlayShow" />
+        <Overlay className="fixed inset-0 z-30 backdrop-blur-[2px] data-[state=open]:animate-overlayShow" />
 
-        <Content className="md:frosted-glass-bg fixed left-[50%] top-[50%] w-max max-w-[540px] translate-x-[-50%] translate-y-[-50%] rounded-lg border border-gray-100 p-6 text-neutral-800 shadow-lg focus:outline-none data-[state=open]:animate-contentShow dark:border-gray-600 dark:text-gray-300">
+        <Content
+          className={cn(
+            "md:frosted-glass-bg",
+            "z-30",
+            "w-max max-w-[540px]",
+            "bg-white dark:bg-neutral-800",
+            "rounded-lg p-6 text-neutral-800 shadow-lg dark:text-gray-300",
+            "border border-gray-100 focus:outline-none dark:border-gray-600",
+            "fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]",
+            "data-[state=open]:animate-contentShow"
+          )}>
           <Title className="mb-6 text-center text-xl font-bold">
             Rename File
           </Title>

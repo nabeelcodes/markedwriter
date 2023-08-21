@@ -104,7 +104,13 @@ export const TitleInput = React.memo(
           </Close>
 
           <button
-            className="w-full rounded border bg-neutral-800 py-2 font-bold text-gray-300 disabled:bg-neutral-500 dark:bg-gray-300 dark:text-neutral-800"
+            className={cn(
+              "w-full rounded border border-black bg-neutral-800 py-2 font-bold text-gray-300 dark:bg-gray-300 dark:text-neutral-800",
+              {
+                "border-neutral-500 bg-neutral-500 dark:bg-neutral-500":
+                  buttonDisabled,
+              }
+            )}
             type="submit"
             aria-label="Rename Button"
             disabled={buttonDisabled}>

@@ -4,6 +4,7 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { LayoutContainer } from "./components/LayoutContainer";
 import { NoMatch } from "./pages/NoMatch";
 import { LandingPage } from "./pages/LandingPage";
@@ -21,5 +22,9 @@ const appRouter = createBrowserRouter(
 );
 
 export default function App() {
-  return <RouterProvider router={appRouter} />;
+  return (
+    <HelmetProvider>
+      <RouterProvider router={appRouter} />
+    </HelmetProvider>
+  );
 }

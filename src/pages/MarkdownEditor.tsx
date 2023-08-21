@@ -1,43 +1,44 @@
+import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { PageTitle } from "../components/PageTitle";
+import { DesktopSidebar } from "../components/DesktopSidebar";
 import { MarkdownInput } from "../components/MarkdownInput";
 import { RenderedMarkdown } from "../components/RenderedMarkdown";
-import { cn } from "../utilities/classNameHelper";
 import { useIdValidator } from "../hooks/useIdValidator";
+import { cn } from "../utilities/classNameHelper";
 
 export const MarkdownEditor = () => {
   const { id } = useParams();
   useIdValidator(id);
 
   return (
-    <div className="container2000">
-      <PageTitle />
+    <>
+      <Helmet>
+        <title>MarkedWriter | Editor</title>
+      </Helmet>
 
-      <section
-        /* 
-          64.5px = Height of Header
-          68.6px = Height of (PageTitle + mt-4)
-        */
-        className={cn(
-          "flex",
-          "min-h-[calc(100vh-64.5px-68.6px)] md:min-h-[calc(100vh-64.5px)]"
-        )}
-        aria-label="wrapper for input box">
+      <div className="container2000 relative">
+        <PageTitle />
+
         {/* Desktop Sidebar */}
-        <aside
+        <DesktopSidebar />
+
+        <section
+          /* 
+        64.5px = Height of Header
+        68.6px = Height of (PageTitle + mt-4)
+        */
           className={cn(
-            "hidden xl:block",
-            "grow p-5",
-            "dark:bg-neutral-800",
-            "border-r border-gray-200 dark:border-neutral-600"
-          )}>
-          Sidebar
-        </aside>
+            "flex",
+            "-z-10 xl:ml-[95.6px]",
+            "min-h-[calc(100vh-64.5px-68.6px)] md:min-h-[calc(100vh-64.5px)]"
+          )}
+          aria-label="wrapper for input box">
+          <MarkdownInput pageId={id} />
 
-        <MarkdownInput pageId={id} />
-
-        <RenderedMarkdown pageId={id} />
-      </section>
-    </div>
+          <RenderedMarkdown pageId={id} />
+        </section>
+      </div>
+    </>
   );
 };
