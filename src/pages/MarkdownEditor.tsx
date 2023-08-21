@@ -1,11 +1,16 @@
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { PageTitle } from "../components/PageTitle";
 import { DesktopSidebar } from "../components/DesktopSidebar";
 import { MarkdownInput } from "../components/MarkdownInput";
-import { RenderedMarkdown } from "../components/RenderedMarkdown";
+import { StatusBar } from "../components/StatusBar";
+import { Loader } from "../components/Loader";
 import { useIdValidator } from "../hooks/useIdValidator";
 import { cn } from "../utilities/classNameHelper";
+
+/* Attempt to reduce un-used JS for Landing page */
+const RenderedMarkdown = lazy(() => import("../components/RenderedMarkdown"));
 
 export const MarkdownEditor = () => {
   const { id } = useParams();
@@ -36,8 +41,12 @@ export const MarkdownEditor = () => {
           aria-label="wrapper for input box">
           <MarkdownInput pageId={id} />
 
-          <RenderedMarkdown pageId={id} />
+          <Suspense fallback={<Loader />}>
+            <RenderedMarkdown pageId={id} />
+          </Suspense>
         </section>
+
+        <StatusBar />
       </div>
     </>
   );

@@ -7,7 +7,7 @@ type renderedMarkdownProps = {
   pageId: string | undefined;
 };
 
-export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
+const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
   const stateVar = true; // Get this from ASIDE remark-GFM
 
   const [appData] = useAtom(appDataAtom);
@@ -42,3 +42,5 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
     </section>
   );
 };
+
+export default RenderedMarkdown;
