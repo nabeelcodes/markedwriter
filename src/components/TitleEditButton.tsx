@@ -1,11 +1,4 @@
-import {
-  Root,
-  Trigger,
-  Portal,
-  Overlay,
-  Content,
-  Title,
-} from "@radix-ui/react-dialog";
+import * as RadixDialog from "@radix-ui/react-dialog";
 import { useParams } from "react-router-dom";
 import { useAtom } from "jotai";
 import { appDataAtom, dialogStateAtom } from "../store/appState";
@@ -21,17 +14,17 @@ export const TitleEditButton = () => {
   const currentPost = appData?.find((post) => post.id === id);
 
   return (
-    <Root open={openRadixDialog} onOpenChange={setOpenRadixDialog}>
-      <Trigger asChild>
+    <RadixDialog.Root open={openRadixDialog} onOpenChange={setOpenRadixDialog}>
+      <RadixDialog.Trigger asChild>
         <button className="h-full px-4 py-3 xl:py-3">
           <EditIconSVG />
         </button>
-      </Trigger>
+      </RadixDialog.Trigger>
 
-      <Portal>
-        <Overlay className="fixed inset-0 z-30 backdrop-blur-[2px] data-[state=open]:animate-overlayShow" />
+      <RadixDialog.Portal>
+        <RadixDialog.Overlay className="fixed inset-0 z-30 backdrop-blur-[2px] data-[state=open]:animate-overlayShow" />
 
-        <Content
+        <RadixDialog.Content
           className={cn(
             "md:frosted-glass-bg",
             "z-30",
@@ -42,16 +35,16 @@ export const TitleEditButton = () => {
             "fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]",
             "data-[state=open]:animate-contentShow"
           )}>
-          <Title className="mb-6 text-center text-xl font-bold">
+          <RadixDialog.Title className="mb-6 text-center text-xl font-bold">
             Rename File
-          </Title>
+          </RadixDialog.Title>
 
           <TitleInput
             currentPageTitle={currentPost?.title}
             currentPageId={currentPost?.id}
           />
-        </Content>
-      </Portal>
-    </Root>
+        </RadixDialog.Content>
+      </RadixDialog.Portal>
+    </RadixDialog.Root>
   );
 };

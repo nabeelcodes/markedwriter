@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 
 type postItemProps = {
@@ -7,7 +7,7 @@ type postItemProps = {
   titleToDisplay: string;
 };
 
-export const PostItem = React.memo(
+export const PostItem = memo(
   ({ postId, dateToDisplay, titleToDisplay }: postItemProps) => {
     return (
       <li className="rounded-lg border border-gray-200 text-neutral-800 dark:border-neutral-600 dark:text-gray-300">

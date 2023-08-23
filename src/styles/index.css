@@ -25,7 +25,7 @@
   }
 
   .frosted-glass-bg {
-    @apply bg-white bg-opacity-20 backdrop-blur-md backdrop-filter dark:bg-neutral-800 dark:bg-opacity-60;
+    @apply bg-white bg-opacity-20 backdrop-blur backdrop-filter dark:bg-neutral-800 dark:bg-opacity-60;
   }
 }
 
@@ -48,3 +48,7 @@
   background: #606060;
 }
 /* CUSTOM SCROLL-BAR CSS : END */
+
+a:hover {
+  opacity: 0.8;
+}

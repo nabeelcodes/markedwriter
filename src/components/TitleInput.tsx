@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { memo, useState } from "react";
 import { useAtom } from "jotai";
 import { Close } from "@radix-ui/react-dialog";
 import { appDataAtom, dialogStateAtom } from "../store/appState";
@@ -9,7 +9,7 @@ type titleInputProps = {
   currentPageId: string | undefined;
 };
 
-export const TitleInput = React.memo(
+export const TitleInput = memo(
   ({ currentPageTitle, currentPageId }: titleInputProps) => {
     const [appData, setAppData] = useAtom(appDataAtom);
     const [, setOpenRadixDialog] = useAtom(dialogStateAtom);
