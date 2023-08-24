@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { PageTitle } from "../components/PageTitle";
@@ -8,9 +8,13 @@ import { StatusBar } from "../components/StatusBar";
 import { Loader } from "../components/Loader";
 import { useIdValidator } from "../hooks/useIdValidator";
 import { cn } from "../utilities/classNameHelper";
+import { lazyLoad } from "../utilities/lazyLoad";
 
 /* Attempt to reduce un-used JS for Landing page */
-const RenderedMarkdown = lazy(() => import("../components/RenderedMarkdown"));
+const RenderedMarkdown = lazyLoad(
+  "../components/RenderedMarkdown",
+  "RenderedMarkdown"
+);
 
 export const MarkdownEditor = () => {
   const { id } = useParams();
@@ -30,12 +34,12 @@ export const MarkdownEditor = () => {
 
         <section
           /* 
-        64.5px = Height of Header
-        68.6px = Height of (PageTitle + mt-4)
-        */
+          64.5px = Height of Header
+          68.6px = Height of (PageTitle + mt-4)
+          */
           className={cn(
             "flex",
-            "-z-10 xl:ml-[95.6px]",
+            "-z-10 xl:ml-[88.8px]",
             "min-h-[calc(100vh-64.5px-68.6px)] md:min-h-[calc(100vh-64.5px)]"
           )}
           aria-label="wrapper for input box">
