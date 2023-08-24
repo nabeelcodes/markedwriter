@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useAtom } from "jotai";
 import { appDataAtom } from "../store/appState";
+import { updatePostContent } from "../utilities/updatePostContent";
 import { DeleteIcon } from "../assets/DeleteIcon";
 import { cn } from "../utilities/classNameHelper";
 
@@ -10,17 +11,10 @@ export const ClearAllButton = () => {
   const { id } = useParams();
   const [appData, setAppData] = useAtom(appDataAtom);
   const [radixDialogOpen, setRadixDialogOpen] = useState(false);
-  /* Find the Post corresponding to the current page */
-  const currentPost = appData?.find((post) => post.id === id);
 
   const handleClick = () => {
-    const newAppData = [...appData];
-    const indexOfCurrentPost = newAppData.findIndex(
-      (element) => element?.id === currentPost?.id
-    );
-    /* Setting content to empty string */
-    newAppData[indexOfCurrentPost].content = "";
-    setAppData(newAppData);
+    const UpdatedAppData = updatePostContent(appData, id, "");
+    setAppData(UpdatedAppData);
     setRadixDialogOpen(false);
   };
 
@@ -46,7 +40,7 @@ export const ClearAllButton = () => {
             "fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]",
             "data-[state=open]:animate-contentShow"
           )}>
-          <RadixDialog.Title className="mb-6 text-center text-xl font-bold">
+          <RadixDialog.Title className="mb-6 text-center text-2xl font-bold">
             Delete Content
           </RadixDialog.Title>
 
@@ -58,13 +52,17 @@ export const ClearAllButton = () => {
 
           <div className="mt-4 flex items-center justify-between gap-x-4">
             <RadixDialog.Close asChild>
-              <button className="w-full rounded border px-4 py-2">
+              <button className="w-full rounded border px-4 py-2 font-bold">
                 Cancel
               </button>
             </RadixDialog.Close>
 
             <button
-              className="w-full rounded border border-red-500 bg-red-600/20 px-4 py-2 font-bold text-red-500"
+              className={cn(
+                "w-full rounded border px-4 py-2 font-bold",
+                "border-black bg-black text-white",
+                "dark:border-white dark:bg-white dark:text-black"
+              )}
               onClick={handleClick}>
               Delete Permanently
             </button>

@@ -52,3 +52,7 @@
 a:hover {
   opacity: 0.8;
 }
+input[type="checkbox"] {
+  margin: 0 6px -6px 0;
+  display: inline-block;
+}
