@@ -35,7 +35,7 @@ export const TitleEditButton = () => {
             "fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]",
             "data-[state=open]:animate-contentShow"
           )}>
-          <RadixDialog.Title className="mb-6 text-center text-xl font-bold">
+          <RadixDialog.Title className="mb-6 text-center text-2xl font-bold">
             Rename File
           </RadixDialog.Title>
 

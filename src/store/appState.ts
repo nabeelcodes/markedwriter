@@ -6,18 +6,11 @@ for ONLY 2 COMPONENTS:
 	- For rendering AppLogo in Header.tsx
 	- As an internal state for NavItemThemeToggle.tsx
 */
-// const htmlTagCLasslist = document.documentElement.classList;
 export const themeAtom = atomWithStorage<"light" | "dark">("theme", "light");
-
-/* State for open/close of RadixDialog */
-export const dialogStateAtom = atom<boolean>(false);
 
 /* App wide state to contain and monitor markdown 
 data */
-type appDataType = {
-  id: string;
-  title: string;
-  content: string;
-  date: string;
-}[];
-export const appDataAtom = atomWithStorage<appDataType>("appData", []);
+export const appDataAtom = atomWithStorage<AppData>("appData", []);
+
+/* State for open/close of RadixDialog */
+export const dialogStateAtom = atom<boolean>(false);

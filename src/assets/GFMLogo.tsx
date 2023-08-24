@@ -4,7 +4,6 @@ export const GFMLogo = () => {
       width="44"
       height="33"
       viewBox="0 0 44 33"
-      // fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xlinkHref="http://www.w3.org/1999/xlink"
       className="h-7 fill-black dark:fill-gray-300">
@@ -38,7 +37,6 @@ export const GFMLogo = () => {
           <rect
             width="29.8975"
             height="28.7692"
-            // fill="white"
             transform="translate(14.1025 1.69232)"
           />
         </clipPath>

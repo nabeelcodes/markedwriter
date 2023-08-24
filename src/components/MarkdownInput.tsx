@@ -1,6 +1,7 @@
 import { useAtom } from "jotai";
 import { appDataAtom } from "../store/appState";
 import { insertTabForTextarea } from "../utilities/tabHelper";
+import { updatePostContent } from "../utilities/updatePostContent";
 import { cn } from "../utilities/classNameHelper";
 
 type markdownInputProps = {
@@ -21,6 +22,15 @@ export const MarkdownInput = ({ pageId }: markdownInputProps) => {
     setAppData(valueOfAppData);
   };
 
+  const tabInputHandler = (updatedPostContent: string) => {
+    const finalUpdatedAppData = updatePostContent(
+      appData,
+      pageId,
+      updatedPostContent
+    );
+    setAppData(finalUpdatedAppData);
+  };
+
   return (
     <textarea
       className={cn(
@@ -29,7 +39,7 @@ export const MarkdownInput = ({ pageId }: markdownInputProps) => {
         "mx-auto max-w-lg p-8 md:max-w-full",
         "disable-scrollbar resize-none",
         "border-none outline-none focus:outline-none",
-        "dark:bg-neutral-800 dark:text-gray-500"
+        "dark:bg-neutral-800 dark:text-gray-500 xl:dark:bg-black/50"
       )}
       id="editor"
       name="editor"
@@ -39,7 +49,7 @@ export const MarkdownInput = ({ pageId }: markdownInputProps) => {
       aria-label="input box to enter markdown"
       value={currentPost?.content}
       onChange={handleChange}
-      onKeyDown={insertTabForTextarea}
+      onKeyDown={(event) => insertTabForTextarea(event, tabInputHandler)}
     />
   );
 };
