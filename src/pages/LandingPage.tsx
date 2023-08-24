@@ -11,7 +11,7 @@ export const LandingPage = () => {
   const [appData, setAppData] = useAtom(appDataAtom);
 
   const createNewMarkdownFile = () => {
-    const slug = (Math.random().toString(16) + "0000000").slice(2, 10);
+    const slug = Date.now().toString();
     const newPost = {
       id: slug,
       title: "Project Title",
