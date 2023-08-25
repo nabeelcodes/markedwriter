@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { PageTitle } from "../components/PageTitle";
@@ -8,12 +8,12 @@ import { StatusBar } from "../components/StatusBar";
 import { Loader } from "../components/Loader";
 import { useIdValidator } from "../hooks/useIdValidator";
 import { cn } from "../utilities/classNameHelper";
-import { lazyLoad } from "../utilities/lazyLoad";
 
 /* Attempt to reduce un-used JS for Landing page */
-const RenderedMarkdown = lazyLoad(
-  "../components/RenderedMarkdown",
-  "RenderedMarkdown"
+const RenderedMarkdown = lazy(() =>
+  import("../components/RenderedMarkdown").then((module) => {
+    return { default: module.RenderedMarkdown };
+  })
 );
 
 export const MarkdownEditor = () => {
