@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { cn } from "../utilities/classNameHelper";
+import { cn } from "../../lib/classNameHelper";
 
 export const StatusBar = memo(() => {
   return (

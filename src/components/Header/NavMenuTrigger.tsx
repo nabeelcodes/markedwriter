@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import cssStyles from "../styles/navMenuTrigger.module.css";
+import cssStyles from "../../styles/navMenuTrigger.module.css";
 
 export const NavMenuTrigger = forwardRef<HTMLButtonElement>(
   (props, forwardedRef) => {

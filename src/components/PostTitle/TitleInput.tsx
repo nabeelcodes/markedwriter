@@ -1,9 +1,9 @@
 import { memo, useState } from "react";
 import { useAtom } from "jotai";
 import { Close } from "@radix-ui/react-dialog";
-import { appDataAtom, dialogStateAtom } from "../store/appState";
-import { cn } from "../utilities/classNameHelper";
-import { getCurrentPost } from "../utilities/getCurrentPost";
+import { appDataAtom, dialogStateAtom } from "../../store/appState";
+import { cn } from "../../lib/classNameHelper";
+import { getCurrentPost } from "../../lib/getCurrentPost";
 import { useParams } from "react-router-dom";
 
 export const TitleInput = memo(() => {

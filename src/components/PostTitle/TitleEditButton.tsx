@@ -1,9 +1,9 @@
 import * as RadixDialog from "@radix-ui/react-dialog";
 import { useAtom } from "jotai";
-import { dialogStateAtom } from "../store/appState";
-import { EditIconSVG } from "../assets/EditIconSVG";
+import { dialogStateAtom } from "../../store/appState";
+import { EditIconSVG } from "../../assets/EditIconSVG";
 import { TitleInput } from "./TitleInput";
-import { cn } from "../utilities/classNameHelper";
+import { cn } from "../../lib/classNameHelper";
 
 export const TitleEditButton = () => {
   const [openRadixDialog, setOpenRadixDialog] = useAtom(dialogStateAtom);

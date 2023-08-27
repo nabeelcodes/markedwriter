@@ -1,8 +1,8 @@
 import { useAtom } from "jotai";
-import { appDataAtom } from "../store/appState";
-import { getCurrentPost } from "../utilities/getCurrentPost";
-import { getParsedMarkdown } from "../utilities/getParsedMarkdown";
-import { cn } from "../utilities/classNameHelper";
+import { appDataAtom } from "../../store/appState";
+import { getCurrentPost } from "../../lib/getCurrentPost";
+import { getParsedMarkdown } from "../../lib/getParsedMarkdown";
+import { cn } from "../../lib/classNameHelper";
 
 type renderedMarkdownProps = {
   pageId: string | undefined;

@@ -1,9 +1,9 @@
 import { useAtom } from "jotai";
-import { appDataAtom } from "../store/appState";
-import { getCurrentPost } from "../utilities/getCurrentPost";
-import { insertTabForTextarea } from "../utilities/tabHelper";
-import { updatePostContent } from "../utilities/updatePostContent";
-import { cn } from "../utilities/classNameHelper";
+import { appDataAtom } from "../../store/appState";
+import { getCurrentPost } from "../../lib/getCurrentPost";
+import { insertTabForTextarea } from "../../lib/tabHelper";
+import { updatePostContent } from "../../lib/updatePostContent";
+import { cn } from "../../lib/classNameHelper";
 
 type markdownInputProps = {
   pageId: string | undefined;

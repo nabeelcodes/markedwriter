@@ -1,8 +1,8 @@
 import { useAtom } from "jotai";
 import { forwardRef, useEffect } from "react";
-import { DayIcon } from "../assets/DayIconSVG";
-import { NightIcon } from "../assets/NightIconSVG";
-import { themeAtom } from "../store/appState";
+import { DayIcon } from "../../assets/DayIconSVG";
+import { NightIcon } from "../../assets/NightIconSVG";
+import { themeAtom } from "../../store/appState";
 
 export const NavItemThemeToggle = forwardRef<HTMLLIElement>(
   (props, forwardedRef) => {

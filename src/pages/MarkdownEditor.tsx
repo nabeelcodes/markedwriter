@@ -1,17 +1,17 @@
 import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
-import { PageTitle } from "../components/PageTitle";
-import { DesktopSidebar } from "../components/DesktopSidebar";
-import { MarkdownInput } from "../components/MarkdownInput";
-import { StatusBar } from "../components/StatusBar";
-import { Loader } from "../components/Loader";
+import { PageTitle } from "../components/PostTitle/PageTitle";
+import { DesktopSidebar } from "../components/Sidebar/DesktopSidebar";
+import { MarkdownInput } from "../components/Markdowns/MarkdownInput";
+import { StatusBar } from "../components/StatusBar/StatusBar";
+import { Loader } from "../components/Utils/Loader";
 import { useIdValidator } from "../hooks/useIdValidator";
-import { cn } from "../utilities/classNameHelper";
+import { cn } from "../lib/classNameHelper";
 
 /* Attempt to reduce un-used JS for Landing page */
 const RenderedMarkdown = lazy(() =>
-  import("../components/RenderedMarkdown").then((module) => {
+  import("../components/Markdowns/RenderedMarkdown").then((module) => {
     return { default: module.RenderedMarkdown };
   })
 );

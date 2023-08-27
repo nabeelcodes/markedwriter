@@ -1,5 +1,5 @@
-import { cn } from "../utilities/classNameHelper";
-import cssStyles from "../styles/loaderAnimation.module.css";
+import { cn } from "../../lib/classNameHelper";
+import cssStyles from "../../styles/loaderAnimation.module.css";
 
 export const Loader = () => {
   return (

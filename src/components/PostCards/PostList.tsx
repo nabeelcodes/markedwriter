@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { appDataAtom } from "../store/appState";
+import { appDataAtom } from "../../store/appState";
 import { PostItem } from "./PostItem";
 
 export const PostList = () => {

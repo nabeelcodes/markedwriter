@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import { appDataAtom } from "../store/appState";
 import { NewFileIconSVG } from "../assets/NewFileIconSVG";
 import { PlusIconSVG } from "../assets/PlusIconSVG";
-import { PostList } from "../components/PostList";
+import { PostList } from "../components/PostCards/PostList";
 
 export const LandingPage = () => {
   const navigator = useNavigate();

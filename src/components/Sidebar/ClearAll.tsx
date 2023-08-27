@@ -2,11 +2,11 @@ import * as RadixDialog from "@radix-ui/react-dialog";
 import { useParams } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { useAtom } from "jotai";
-import { appDataAtom } from "../store/appState";
-import { getCurrentPost } from "../utilities/getCurrentPost";
-import { updatePostContent } from "../utilities/updatePostContent";
-import { DeleteIcon } from "../assets/DeleteIcon";
-import { cn } from "../utilities/classNameHelper";
+import { appDataAtom } from "../../store/appState";
+import { getCurrentPost } from "../../lib/getCurrentPost";
+import { updatePostContent } from "../../lib/updatePostContent";
+import { DeleteIcon } from "../../assets/DeleteIcon";
+import { cn } from "../../lib/classNameHelper";
 
 export const ClearAllButton = () => {
   const { id } = useParams();

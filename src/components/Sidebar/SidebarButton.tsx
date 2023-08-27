@@ -1,4 +1,4 @@
-import { cn } from "../utilities/classNameHelper";
+import { cn } from "../../lib/classNameHelper";
 
 type sidebarButtonProps = React.ComponentPropsWithoutRef<"button"> & {
   children: React.ReactNode;

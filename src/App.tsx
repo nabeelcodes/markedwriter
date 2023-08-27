@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
-import { LayoutContainer } from "./components/LayoutContainer";
+import { LayoutContainer } from "./components/Utils/LayoutContainer";
 import { NoMatch } from "./pages/NoMatch";
 import { LandingPage } from "./pages/LandingPage";
 import { MarkdownEditor } from "./pages/MarkdownEditor";

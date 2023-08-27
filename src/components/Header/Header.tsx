@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
-import { themeAtom } from "../store/appState";
-import { AppLogoDark } from "../assets/AppLogoDarkSVG";
-import { AppLogoLight } from "../assets/AppLogoLightSVG";
+import { themeAtom } from "../../store/appState";
+import { AppLogoDark } from "../../assets/AppLogoDarkSVG";
+import { AppLogoLight } from "../../assets/AppLogoLightSVG";
 import { NavBar } from "./NavBar";
 
 export const Header = () => {

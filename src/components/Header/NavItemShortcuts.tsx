@@ -9,8 +9,8 @@ import {
   Description,
   Close,
 } from "@radix-ui/react-dialog";
-import { CloseIcon } from "../assets/CloseIconSVG";
-import { CmdIcon } from "../assets/CmdIconSVG";
+import { CloseIcon } from "../../assets/CloseIconSVG";
+import { CmdIcon } from "../../assets/CmdIconSVG";
 
 export const NavItemShortcuts = () => {
   return (

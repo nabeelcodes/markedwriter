@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useAtom } from "jotai";
-import { appDataAtom } from "../store/appState";
-import { getCurrentPost } from "../utilities/getCurrentPost";
+import { appDataAtom } from "../../store/appState";
+import { getCurrentPost } from "../../lib/getCurrentPost";
 import { TitleEditButton } from "./TitleEditButton";
-import { cn } from "../utilities/classNameHelper";
+import { cn } from "../../lib/classNameHelper";
 
 export const PageTitle = () => {
   const { id } = useParams();
