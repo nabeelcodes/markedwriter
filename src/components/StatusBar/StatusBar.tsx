@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { WordCount } from "./WordCount";
 import { cn } from "../../lib/classNameHelper";
 
 export const StatusBar = memo(() => {
@@ -16,9 +17,8 @@ export const StatusBar = memo(() => {
       <span className="font-bold">Markdown</span>
 
       <div className="flex items-center justify-between gap-8 font-bold">
-        <article>
-          Words : <span className="text-green-500">1472</span>
-        </article>
+        <WordCount />
+
         <article className="hidden md:block">
           Reading Time : <span className="text-green-500">8 mins read</span>
         </article>
