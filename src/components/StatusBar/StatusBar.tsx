@@ -1,5 +1,6 @@
 import { memo } from "react";
 import { WordCount } from "./WordCount";
+import { ReadingTime } from "./ReadingTime";
 import { cn } from "../../lib/classNameHelper";
 
 export const StatusBar = memo(() => {
@@ -19,9 +20,7 @@ export const StatusBar = memo(() => {
       <div className="flex items-center justify-between gap-8 font-bold">
         <WordCount />
 
-        <article className="hidden md:block">
-          Reading Time : <span className="text-green-500">8 mins read</span>
-        </article>
+        <ReadingTime />
       </div>
     </section>
   );
