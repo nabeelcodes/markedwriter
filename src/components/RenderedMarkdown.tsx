@@ -1,5 +1,6 @@
 import { useAtom } from "jotai";
 import { appDataAtom } from "../store/appState";
+import { getCurrentPost } from "../utilities/getCurrentPost";
 import { getParsedMarkdown } from "../utilities/getParsedMarkdown";
 import { cn } from "../utilities/classNameHelper";
 
@@ -11,9 +12,7 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
   const stateVar = true; // Get this from ASIDE remark-GFM
 
   const [appData] = useAtom(appDataAtom);
-  /* Find the Post corresponding to the current page */
-  const currentPost = appData?.find((post) => post.id === pageId);
-  const contentToParse = currentPost?.content;
+  const contentToParse = getCurrentPost(appData, pageId)?.content;
   const parsedMarkdown = getParsedMarkdown(contentToParse, stateVar);
 
   return (

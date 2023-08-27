@@ -1,17 +1,12 @@
 import * as RadixDialog from "@radix-ui/react-dialog";
-import { useParams } from "react-router-dom";
 import { useAtom } from "jotai";
-import { appDataAtom, dialogStateAtom } from "../store/appState";
+import { dialogStateAtom } from "../store/appState";
 import { EditIconSVG } from "../assets/EditIconSVG";
 import { TitleInput } from "./TitleInput";
 import { cn } from "../utilities/classNameHelper";
 
 export const TitleEditButton = () => {
-  const { id } = useParams();
-  const [appData] = useAtom(appDataAtom);
   const [openRadixDialog, setOpenRadixDialog] = useAtom(dialogStateAtom);
-  /* Find the Post corresponding to the current page */
-  const currentPost = appData?.find((post) => post.id === id);
 
   return (
     <RadixDialog.Root open={openRadixDialog} onOpenChange={setOpenRadixDialog}>
@@ -39,10 +34,7 @@ export const TitleEditButton = () => {
             Rename File
           </RadixDialog.Title>
 
-          <TitleInput
-            currentPageTitle={currentPost?.title}
-            currentPageId={currentPost?.id}
-          />
+          <TitleInput />
         </RadixDialog.Content>
       </RadixDialog.Portal>
     </RadixDialog.Root>

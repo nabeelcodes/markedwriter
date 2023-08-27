@@ -1,8 +1,9 @@
 import * as RadixDialog from "@radix-ui/react-dialog";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useAtom } from "jotai";
 import { appDataAtom } from "../store/appState";
+import { getCurrentPost } from "../utilities/getCurrentPost";
 import { updatePostContent } from "../utilities/updatePostContent";
 import { DeleteIcon } from "../assets/DeleteIcon";
 import { cn } from "../utilities/classNameHelper";
@@ -11,6 +12,16 @@ export const ClearAllButton = () => {
   const { id } = useParams();
   const [appData, setAppData] = useAtom(appDataAtom);
   const [radixDialogOpen, setRadixDialogOpen] = useState(false);
+
+  /* Setting disabled state for ClearAll Button based on current Post content's length */
+  const isDisabled = useMemo(() => {
+    const currentPost = getCurrentPost(appData, id);
+    if (currentPost?.content && currentPost?.content.length > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }, [appData, id]);
 
   const handleClick = () => {
     const UpdatedAppData = updatePostContent(appData, id, "");
@@ -21,8 +32,14 @@ export const ClearAllButton = () => {
   return (
     <RadixDialog.Root open={radixDialogOpen} onOpenChange={setRadixDialogOpen}>
       <RadixDialog.Trigger asChild>
-        <button className="grid aspect-square h-12 place-content-center rounded border shadow-sm dark:border-red-600 dark:bg-red-600/10">
-          <DeleteIcon />
+        <button
+          className={cn(
+            "dark grid aspect-square h-12 place-content-center rounded border shadow-sm dark:border-red-600 dark:bg-red-600/10",
+            // classes for disabled state 👇
+            "dark:disabled:border-neutral-600 dark:disabled:bg-neutral-800"
+          )}
+          disabled={isDisabled}>
+          <DeleteIcon disabled={isDisabled} />
         </button>
       </RadixDialog.Trigger>
 

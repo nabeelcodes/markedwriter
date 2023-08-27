@@ -8,8 +8,8 @@ export const updatePostContent = (
 ) => {
   if (!pageId) return appData;
 
-  const filteredAppData = appData?.filter((post) => post.id !== pageId);
   const currentPost = appData?.find((post) => post.id === pageId);
+  const filteredAppData = appData?.filter((post) => post.id !== pageId);
 
   const updatedCurrentPost = {
     id: currentPost?.id || "",

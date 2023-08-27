@@ -1,6 +1,7 @@
+import { memo } from "react";
 import { cn } from "../utilities/classNameHelper";
 
-export const StatusBar = () => {
+export const StatusBar = memo(() => {
   return (
     <section
       className={cn(
@@ -24,4 +25,4 @@ export const StatusBar = () => {
       </div>
     </section>
   );
-};
+});

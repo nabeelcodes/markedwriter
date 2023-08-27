@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useAtom } from "jotai";
 import { appDataAtom } from "../store/appState";
+import { getCurrentPost } from "../utilities/getCurrentPost";
 import { TitleEditButton } from "./TitleEditButton";
 import { cn } from "../utilities/classNameHelper";
 
@@ -8,8 +9,8 @@ export const PageTitle = () => {
   const { id } = useParams();
   const [appData] = useAtom(appDataAtom);
 
-  /* Find the Post corresponding to the current page */
-  const currentPost = appData?.find((post) => post.id === id);
+  /* Find the Post corresponding to the current pageId */
+  const currentPost = getCurrentPost(appData, id);
   const titleToDisplay = currentPost?.title;
 
   return (
