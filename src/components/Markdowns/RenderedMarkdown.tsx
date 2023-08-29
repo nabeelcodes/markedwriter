@@ -31,7 +31,6 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
           "prose prose-violet dark:prose-invert",
           // prose - anchor tag modifications 👇
           "prose-a:border-b-2 prose-a:border-violet-500 prose-a:pb-[0.2rem] prose-a:no-underline",
-          // prose - inline-code tag modifications 👇
           "prose-code:rounded-md prose-code:px-2 prose-code:py-1",
           "prose-code:bg-green-100 prose-code:font-normal prose-code:text-green-600",
           "dark:prose-code:bg-green-600/10 dark:prose-code:text-green-400",
@@ -40,8 +39,8 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
           "[&>pre>code]:px-0",
           "[&>pre>code]:bg-transparent [&>pre>code]:text-green-600 dark:[&>pre>code]:bg-transparent dark:[&>pre>code]:text-green-400",
           // prose - pre tag modifications 👇
-          "prose-pre:border-2 prose-pre:border-green-600 prose-pre:bg-green-100",
-          "dark:prose-pre:border-green-400 dark:prose-pre:bg-green-600/10",
+          "prose-pre:border prose-pre:border-gray-200 prose-pre:bg-transparent",
+          "dark:prose-pre:border-neutral-600",
           // prose - table modifications 👇
           "prose-table:border prose-th:p-4 prose-th:text-left prose-th:text-lg prose-td:px-4 prose-td:py-3 prose-td:text-left dark:prose-table:border-gray-600"
         )}

@@ -7,8 +7,10 @@ import remarkRehype from "remark-rehype";
 import emoji from "remark-emoji";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
-import rehypeSanitize from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
+import rehypeHighlight from "rehype-highlight";
+import rehypeSanitize from "rehype-sanitize";
+import sanitizeSchema from "./sanitizeSchema";
 
 type getParsedMarkdownProps = (
   content: string | undefined,
@@ -26,12 +28,16 @@ export const getParsedMarkdown: getParsedMarkdownProps = (
     .use(remarkRehype, {
       allowDangerousHtml: stateVar,
     })
+    .use(rehypeHighlight, {
+      detect: false,
+      ignoreMissing: true,
+    })
     .use(emoji, {
       emoticon: true,
     })
     .use(stateVar ? remarkGfm : null)
     .use(rehypeRaw)
-    .use(rehypeSanitize)
+    .use(rehypeSanitize, sanitizeSchema)
     .use(rehypeStringify)
     .processSync(content);
 
