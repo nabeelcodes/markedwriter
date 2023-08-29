@@ -1,10 +1,11 @@
 import { cn } from "../lib/classNameHelper";
 
 type DeleteIconProps = {
-  disabled: boolean;
+  disabled?: boolean;
+  className?: string;
 };
 
-export const DeleteIcon = ({ disabled }: DeleteIconProps) => {
+export const DeleteIcon = ({ disabled, className }: DeleteIconProps) => {
   return (
     <svg
       width="30"
@@ -12,7 +13,9 @@ export const DeleteIcon = ({ disabled }: DeleteIconProps) => {
       viewBox="0 0 30 37"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn("h-7 fill-red-500", { "fill-gray-600": disabled })}>
+      className={cn("h-7 fill-red-500", className, {
+        "fill-gray-600": disabled,
+      })}>
       <g clipPath="url(#clip0_211_225)">
         <mask
           id="mask0_211_225"

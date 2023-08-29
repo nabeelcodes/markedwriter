@@ -1,0 +1,4 @@
+input[type="checkbox"] {
+  margin: 0 6px -6px 0;
+  display: inline-block;
+}

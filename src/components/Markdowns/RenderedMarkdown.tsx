@@ -3,6 +3,7 @@ import { appDataAtom } from "../../store/appState";
 import { getCurrentPost } from "../../lib/getCurrentPost";
 import { getParsedMarkdown } from "../../lib/getParsedMarkdown";
 import { cn } from "../../lib/classNameHelper";
+import cssStyles from "../../styles/renderedMarkdown.module.css";
 
 type renderedMarkdownProps = {
   pageId: string | undefined;
@@ -27,10 +28,12 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
           __html: parsedMarkdown ?? "",
         }}
         className={cn(
+          cssStyles,
           "mx-8 max-w-xs md:mx-auto lg:max-w-sm xl:max-w-none",
           "prose prose-violet dark:prose-invert",
           // prose - anchor tag modifications 👇
-          "prose-a:border-b-2 prose-a:border-violet-500 prose-a:pb-[0.2rem] prose-a:no-underline",
+          "prose-a:border-b-2 prose-a:border-violet-500 prose-a:pb-[0.2rem] prose-a:no-underline hover:prose-a:opacity-80",
+          // prose - inline-code tag modifications 👇
           "prose-code:rounded-md prose-code:px-2 prose-code:py-1",
           "prose-code:bg-green-100 prose-code:font-normal prose-code:text-green-600",
           "dark:prose-code:bg-green-600/10 dark:prose-code:text-green-400",
