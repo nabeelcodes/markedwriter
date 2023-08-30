@@ -81,6 +81,16 @@ export const TitleInput = memo(() => {
         aria-label="input box to rename file title"
         value={valueOfTitle}
         onChange={handleChangeForTitleRename}
+        onFocus={() => {
+          /* move radix modal(parent) up when this input is focussed */
+          const radixContent = document.getElementById("radix-:rd:");
+          radixContent?.classList?.add("shiftUp");
+        }}
+        onBlur={() => {
+          /* move radix modal(parent) down when this input isn't focussed */
+          const radixContent = document.getElementById("radix-:rd:");
+          radixContent?.classList?.remove("shiftUp");
+        }}
       />
 
       <span

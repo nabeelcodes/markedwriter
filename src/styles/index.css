@@ -29,6 +29,13 @@
   }
 }
 
+/* class to move radix modal up when input is in focus */
+@media (max-width: 768px) {
+  .shiftUp {
+    top: 30%;
+  }
+}
+
 /* CUSTOM SCROLL-BAR CSS : START */
 ::-webkit-scrollbar {
   width: 7px;
