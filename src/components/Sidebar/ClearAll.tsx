@@ -5,7 +5,7 @@ import { useAtom } from "jotai";
 import { appDataAtom } from "../../store/appState";
 import { getCurrentPost } from "../../lib/getCurrentPost";
 import { updatePostContent } from "../../lib/updatePostContent";
-import { DeleteIcon } from "../../assets/DeleteIcon";
+import { DeleteIcon } from "../../assets/DeleteIconSVG";
 import { cn } from "../../lib/classNameHelper";
 
 export const ClearAllButton = () => {
@@ -35,6 +35,7 @@ export const ClearAllButton = () => {
         <button
           className={cn(
             "dark grid aspect-square h-12 place-content-center rounded border shadow-sm dark:border-red-600 dark:bg-red-600/10",
+            "hover:lg:shadow-md dark:hover:lg:shadow-red-800",
             // classes for disabled state 👇
             "dark:disabled:border-neutral-600 dark:disabled:bg-neutral-800"
           )}

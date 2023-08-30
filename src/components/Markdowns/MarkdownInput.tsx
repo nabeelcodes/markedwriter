@@ -36,7 +36,7 @@ export const MarkdownInput = ({ pageId }: markdownInputProps) => {
         "mx-auto max-w-lg p-8 md:max-w-full",
         "disable-scrollbar resize-none",
         "border-none outline-none focus:outline-none",
-        "dark:bg-neutral-800 dark:text-gray-500 xl:dark:bg-black/20"
+        "dark:bg-neutral-800 dark:text-gray-500 xl:dark:bg-neutral-900/30"
       )}
       id="editor"
       name="editor"

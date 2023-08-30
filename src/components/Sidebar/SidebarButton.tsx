@@ -15,6 +15,7 @@ export const SidebarButton = ({
       {...otherProps}
       className={cn(
         "grid aspect-square h-12 place-content-center rounded border shadow-sm dark:border-neutral-600",
+        "hover:lg:shadow-md dark:hover:lg:shadow-gray-700",
         className
       )}>
       {children}

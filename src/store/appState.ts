@@ -14,3 +14,6 @@ export const appDataAtom = atomWithStorage<AppData>("appData", []);
 
 /* State for open/close of RadixDialog */
 export const dialogStateAtom = atom<boolean>(false);
+
+/* State for post style on landing page */
+export const postStyleAtom = atom<"list" | "grid">("grid");

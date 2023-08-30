@@ -27,6 +27,10 @@
   .frosted-glass-bg {
     @apply bg-white bg-opacity-20 backdrop-blur backdrop-filter dark:bg-neutral-800 dark:bg-opacity-60;
   }
+
+  .popOnHover {
+    @apply transition hover:lg:-translate-y-1 hover:lg:shadow-md;
+  }
 }
 
 /* class to move radix modal up when input is in focus */

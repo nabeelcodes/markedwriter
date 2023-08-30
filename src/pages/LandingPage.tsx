@@ -47,7 +47,7 @@ export const LandingPage = () => {
             <span>
               <PlusIconSVG />
             </span>
-            <span>New Markdown</span>
+            <span>New Markdown File</span>
           </button>
         </section>
 

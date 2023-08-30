@@ -1,9 +1,9 @@
 import { memo } from "react";
 import { cn } from "../../lib/classNameHelper";
 import { GFMLogo } from "../../assets/GFMLogo";
-import { RRLogo } from "../../assets/RRLogo";
-import { EyeIcon } from "../../assets/EyeIcon";
-import { DownloadIcon } from "../../assets/DownloadIcon";
+import { RRLogo } from "../../assets/RRLogoSVG";
+import { EyeIcon } from "../../assets/EyeIconSVG";
+import { DownloadIcon } from "../../assets/DownloadIconSVG";
 import { SidebarButton } from "./SidebarButton";
 import { ClearAllButton } from "./ClearAll";
 
