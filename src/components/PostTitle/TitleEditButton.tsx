@@ -21,6 +21,7 @@ export const TitleEditButton = () => {
 
         <RadixDialog.Content
           className={cn(
+            "radix-modal",
             "md:frosted-glass-bg",
             "z-30",
             "w-max max-w-[540px]",
