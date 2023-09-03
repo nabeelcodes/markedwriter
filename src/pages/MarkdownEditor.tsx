@@ -2,9 +2,9 @@ import { lazy, Suspense } from "react";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { PageTitle } from "../components/PostTitle/PageTitle";
-import { DesktopSidebar } from "../components/Sidebar/DesktopSidebar";
 import { MarkdownInput } from "../components/Markdowns/MarkdownInput";
 import { StatusBar } from "../components/StatusBar/StatusBar";
+import { SidebarLoader } from "../components/Sidebar/SidebarLoader";
 import { Loader } from "../components/Utils/Loader";
 import { useIdValidator } from "../hooks/useIdValidator";
 import { cn } from "../lib/classNameHelper";
@@ -13,6 +13,11 @@ import { cn } from "../lib/classNameHelper";
 const RenderedMarkdown = lazy(() =>
   import("../components/Markdowns/RenderedMarkdown").then((module) => {
     return { default: module.RenderedMarkdown };
+  })
+);
+const DesktopSidebar = lazy(() =>
+  import("../components/Sidebar/DesktopSidebar").then((module) => {
+    return { default: module.DesktopSidebar };
   })
 );
 
@@ -30,7 +35,9 @@ export const MarkdownEditor = () => {
         <PageTitle />
 
         {/* Desktop Sidebar */}
-        <DesktopSidebar />
+        <Suspense fallback={<SidebarLoader />}>
+          <DesktopSidebar />
+        </Suspense>
 
         <section
           /* 
