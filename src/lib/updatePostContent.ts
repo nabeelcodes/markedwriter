@@ -12,10 +12,8 @@ export const updatePostContent = (
   const filteredAppData = appData?.filter((post) => post.id !== pageId);
 
   const updatedCurrentPost = {
-    id: currentPost?.id || "",
-    title: currentPost?.title || "",
+    ...currentPost,
     content: updatedPostContent,
-    date: currentPost?.date || "",
   };
 
   return [...filteredAppData, updatedCurrentPost];

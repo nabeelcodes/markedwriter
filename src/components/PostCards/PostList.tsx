@@ -37,7 +37,9 @@ export const PostList = () => {
           /* Reducing Title length to fit available space */
           const titleToDisplay =
             title?.length > 20 && isGridMode
-              ? `${title.substring(0, 22)} ...`
+              ? `${title.substring(0, 18)} ...`
+              : title?.length > 20
+              ? `${title.substring(0, 35)} ...`
               : title;
 
           return (

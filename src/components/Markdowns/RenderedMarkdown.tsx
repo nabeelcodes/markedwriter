@@ -45,7 +45,12 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
           "prose-pre:border prose-pre:border-gray-200 prose-pre:bg-transparent",
           "dark:prose-pre:border-neutral-600",
           // prose - table modifications 👇
-          "prose-table:border prose-th:p-4 prose-th:text-left prose-th:text-lg prose-td:px-4 prose-td:py-3 prose-td:text-left dark:prose-table:border-gray-600"
+          "prose-table:border prose-th:p-4 prose-th:text-left prose-th:text-lg prose-td:px-4 prose-td:py-3 prose-td:text-left dark:prose-table:border-gray-600",
+          // prose - th,td border-left modifications 👇
+          "[&>table>thead>tr>th:not(:first-of-type)]:border-l",
+          "[&>table>tbody>tr>td:not(:first-of-type)]:border-l",
+          "dark:[&>table>thead>tr>th:not(:first-of-type)]:border-neutral-600",
+          "dark:[&>table>tbody>tr>td:not(:first-of-type)]:border-neutral-600"
         )}
       />
     </section>
