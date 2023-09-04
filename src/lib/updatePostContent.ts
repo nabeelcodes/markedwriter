@@ -6,10 +6,10 @@ export const updatePostContent = (
   pageId: string | undefined,
   updatedPostContent: string
 ) => {
-  if (!pageId) return appData;
-
   const currentPost = appData?.find((post) => post.id === pageId);
   const filteredAppData = appData?.filter((post) => post.id !== pageId);
+
+  if (!pageId || !currentPost) return appData;
 
   const updatedCurrentPost = {
     ...currentPost,

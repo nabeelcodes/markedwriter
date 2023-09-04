@@ -17,3 +17,12 @@ export const dialogStateAtom = atom<boolean>(false);
 
 /* State for post style on landing page */
 export const postStyleAtom = atom<"list" | "grid">("grid");
+
+/* State to enable or disable Github Flavoured Markdown(GFM) */
+export const GFMAtom = atom(true);
+
+/* State to enable or disable Remark Rehype(RR) */
+export const RRAtom = atom(true);
+
+/* State to enable or disable Markdown-display pane */
+export const visibilityAtom = atom(true);

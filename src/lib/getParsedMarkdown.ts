@@ -14,19 +14,21 @@ import sanitizeSchema from "./sanitizeSchema";
 
 type getParsedMarkdownProps = (
   content: string | undefined,
-  stateVar: boolean
+  gfmState: boolean,
+  rrState: boolean
 ) => VFile | null;
 
 export const getParsedMarkdown: getParsedMarkdownProps = (
   content,
-  stateVar
+  gfmState,
+  rrState
 ) => {
   if (!content) return null;
 
   const parsedContent = unified()
     .use(remarkParse)
     .use(remarkRehype, {
-      allowDangerousHtml: stateVar,
+      allowDangerousHtml: rrState,
     })
     .use(rehypeHighlight, {
       detect: false,
@@ -35,7 +37,7 @@ export const getParsedMarkdown: getParsedMarkdownProps = (
     .use(emoji, {
       emoticon: true,
     })
-    .use(stateVar ? remarkGfm : null)
+    .use(gfmState ? remarkGfm : null)
     .use(rehypeRaw)
     .use(rehypeSanitize, sanitizeSchema)
     .use(rehypeStringify)

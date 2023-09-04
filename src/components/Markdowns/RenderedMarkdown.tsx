@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { appDataAtom } from "../../store/appState";
+import { GFMAtom, RRAtom, appDataAtom } from "../../store/appState";
 import { getCurrentPost } from "../../lib/getCurrentPost";
 import { getParsedMarkdown } from "../../lib/getParsedMarkdown";
 import { cn } from "../../lib/classNameHelper";
@@ -10,11 +10,12 @@ type renderedMarkdownProps = {
 };
 
 export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
-  const stateVar = true; // Get this from ASIDE remark-GFM
-
   const [appData] = useAtom(appDataAtom);
+  const [gfmState] = useAtom(GFMAtom);
+  const [rrState] = useAtom(RRAtom);
+
   const contentToParse = getCurrentPost(appData, pageId)?.content;
-  const parsedMarkdown = getParsedMarkdown(contentToParse, stateVar);
+  const parsedMarkdown = getParsedMarkdown(contentToParse, gfmState, rrState);
 
   return (
     <section

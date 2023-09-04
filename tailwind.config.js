@@ -20,10 +20,15 @@ export default {
           from: { opacity: 0, transform: "translate(-50%, -40%) scale(0.8)" },
           to: { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
         },
+        contentReveal: {
+          from: { opacity: 0, top: "1rem" },
+          to: { opacity: 1, top: "0.5rem" },
+        },
       },
       animation: {
         overlayShow: "overlayShow 200ms cubic-bezier(0.16, 1, 0.3, 1)",
         contentShow: "contentShow 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+        contentReveal: "contentReveal 200ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },

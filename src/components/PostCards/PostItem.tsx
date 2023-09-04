@@ -47,7 +47,7 @@ export const PostItem = memo(
 
         <button
           className={cn("h-24 bg-red-600/10 px-2", {
-            "absolute bottom-0 right-0 z-50 h-auto bg-transparent py-3":
+            "absolute bottom-0 right-0 z-20 h-auto bg-transparent py-3":
               isGridMode,
           })}
           onClick={handleDelete}>

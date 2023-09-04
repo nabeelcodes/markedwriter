@@ -1,4 +1,6 @@
 import { lazy, Suspense } from "react";
+import { useAtom } from "jotai";
+import { visibilityAtom } from "../store/appState";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { PageTitle } from "../components/PostTitle/PageTitle";
@@ -22,6 +24,7 @@ const DesktopSidebar = lazy(() =>
 );
 
 export const MarkdownEditor = () => {
+  const [paneVisible] = useAtom(visibilityAtom);
   const { id } = useParams();
   useIdValidator(id);
 
@@ -53,7 +56,7 @@ export const MarkdownEditor = () => {
           <MarkdownInput pageId={id} />
 
           <Suspense fallback={<Loader />}>
-            <RenderedMarkdown pageId={id} />
+            {paneVisible && <RenderedMarkdown pageId={id} />}
           </Suspense>
         </section>
 

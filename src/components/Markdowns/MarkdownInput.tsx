@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { appDataAtom } from "../../store/appState";
+import { appDataAtom, visibilityAtom } from "../../store/appState";
 import { getCurrentPost } from "../../lib/getCurrentPost";
 import { insertTabForTextarea } from "../../lib/tabHelper";
 import { updatePostContent } from "../../lib/updatePostContent";
@@ -11,6 +11,7 @@ type markdownInputProps = {
 
 export const MarkdownInput = ({ pageId }: markdownInputProps) => {
   const [appData, setAppData] = useAtom(appDataAtom);
+  const [paneVisible] = useAtom(visibilityAtom);
   /* Find the Post corresponding to the current pageId */
   const currentPost = getCurrentPost(appData, pageId);
 
@@ -36,7 +37,12 @@ export const MarkdownInput = ({ pageId }: markdownInputProps) => {
         "mx-auto max-w-lg p-8 md:max-w-full",
         "disable-scrollbar resize-none",
         "border-none outline-none focus:outline-none",
-        "dark:bg-neutral-800 dark:text-gray-500 xl:dark:bg-neutral-900/30"
+        "dark:bg-neutral-800 dark:text-gray-500 md:dark:bg-neutral-900/30",
+        {
+          /* Styles to apply when Markdown Display pane is hidden 👇 */
+          /* paneVisible : initially TRUE on app load */
+          "md:max-w-4xl md:dark:bg-neutral-800": !paneVisible,
+        }
       )}
       id="editor"
       name="editor"

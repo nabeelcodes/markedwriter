@@ -1,11 +1,10 @@
 import { memo } from "react";
-import { cn } from "../../lib/classNameHelper";
-import { GFMLogo } from "../../assets/GFMLogo";
-import { RRLogo } from "../../assets/RRLogoSVG";
-import { EyeIcon } from "../../assets/EyeIconSVG";
-import { DownloadIcon } from "../../assets/DownloadIconSVG";
-import { SidebarButton } from "./SidebarButton";
+import { GFMButton } from "./GFMButton";
+import { RRButton } from "./RRButton";
+import { PaneVisibilityButton } from "./PaneVisibilityButton";
+import { DownloadButton } from "./DownloadButton";
 import { ClearAllButton } from "./ClearAll";
+import { cn } from "../../lib/classNameHelper";
 
 export const DesktopSidebar = memo(() => {
   return (
@@ -19,18 +18,10 @@ export const DesktopSidebar = memo(() => {
       )}>
       <section className="flex h-full flex-col items-center justify-between">
         <div className="flex flex-col items-center justify-between gap-y-4">
-          <SidebarButton>
-            <GFMLogo />
-          </SidebarButton>
-          <SidebarButton>
-            <RRLogo />
-          </SidebarButton>
-          <SidebarButton>
-            <EyeIcon />
-          </SidebarButton>
-          <SidebarButton>
-            <DownloadIcon />
-          </SidebarButton>
+          <GFMButton />
+          <RRButton />
+          <PaneVisibilityButton />
+          <DownloadButton />
         </div>
 
         <ClearAllButton />
