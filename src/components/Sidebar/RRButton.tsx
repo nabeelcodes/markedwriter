@@ -15,7 +15,7 @@ export const RRButton = () => {
         className={cn(
           "pointer-events-none absolute left-[3.5rem] top-[0.5rem] whitespace-nowrap rounded border bg-white px-3 py-1 text-sm font-bold shadow-md",
           "dark:border-neutral-600 dark:bg-neutral-800 dark:text-green-500",
-          "opacity-0 group-hover:animate-contentReveal group-hover:opacity-100"
+          "animate-contentHide opacity-0 group-hover:animate-contentReveal group-hover:opacity-100"
         )}>
         {rrState ? "Disable" : "Enable"} Remark Rehype
       </span>
