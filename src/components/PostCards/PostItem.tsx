@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
 import { appDataAtom, postStyleAtom } from "../../store/appState";
@@ -39,7 +39,13 @@ export const PostItem = memo(
           className={cn("block w-full p-4", {
             "px-4 pb-24 pt-4": isGridMode,
           })}>
-          <h2 className="overflow-x-hidden whitespace-nowrap text-lg font-bold">
+          <h2
+            className="max-w-[--text-width] overflow-x-hidden text-ellipsis whitespace-nowrap text-lg font-bold"
+            style={
+              {
+                "--text-width": isGridMode ? "20ch" : "30ch",
+              } as CSSProperties
+            }>
             {titleToDisplay}
           </h2>
           <p className="mt-1 text-sm opacity-70">{dateToDisplay}</p>

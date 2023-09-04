@@ -33,24 +33,14 @@ export const PostList = () => {
         className={cn("mt-4 flex flex-col gap-y-4 rounded-lg", {
           "grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4": isGridMode,
         })}>
-        {sortedAppData.map(({ id, title, date }) => {
-          /* Reducing Title length to fit available space */
-          const titleToDisplay =
-            title?.length > 20 && isGridMode
-              ? `${title.substring(0, 18)} ...`
-              : title?.length > 20
-              ? `${title.substring(0, 35)} ...`
-              : title;
-
-          return (
-            <PostItem
-              key={id}
-              postId={id}
-              dateToDisplay={date}
-              titleToDisplay={titleToDisplay}
-            />
-          );
-        })}
+        {sortedAppData.map(({ id, title, date }) => (
+          <PostItem
+            key={id}
+            postId={id}
+            dateToDisplay={date}
+            titleToDisplay={title}
+          />
+        ))}
       </ul>
     </section>
   );

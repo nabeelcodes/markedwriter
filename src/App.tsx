@@ -4,7 +4,6 @@ import {
   Route,
   RouterProvider,
 } from "react-router-dom";
-import { useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { LayoutContainer } from "./components/Utils/LayoutContainer";
 import { NoMatch } from "./pages/NoMatch";
@@ -23,19 +22,6 @@ const appRouter = createBrowserRouter(
 );
 
 export default function App() {
-  const removePreloadFromBody = () => {
-    const body = document.querySelector("#body");
-    body?.classList.remove("preload");
-  };
-
-  useEffect(() => {
-    window.addEventListener("load", removePreloadFromBody);
-
-    return () => {
-      window.removeEventListener("load", removePreloadFromBody);
-    };
-  }, []);
-
   return (
     <HelmetProvider>
       <RouterProvider router={appRouter} />

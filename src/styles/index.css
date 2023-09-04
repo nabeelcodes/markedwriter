@@ -33,20 +33,6 @@
   }
 }
 
-/* preload class to prevent animations on pageLoad / refresh */
-.preload * {
-  animation: none !important;
-  -webkit-animation: none !important;
-  -moz-animation: none !important;
-  -ms-animation: none !important;
-  -o-animation: none !important;
-  transition: none !important;
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -ms-transition: none !important;
-  -o-transition: none !important;
-}
-
 /* class to move radix modal up when input is in focus */
 @media (max-width: 768px) {
   .shiftUp {
