@@ -46,7 +46,7 @@ export const TitleInput = memo(() => {
     setValueOfTitle(updatedTitle);
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const valueOfAppData = [...appData];
