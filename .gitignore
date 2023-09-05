@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 fullTailwind.config.js
 WindowWidthOverlay.tsx
-todo.txt
+todo.md

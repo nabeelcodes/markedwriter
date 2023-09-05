@@ -34,12 +34,22 @@ export const ClearAllButton = () => {
       <RadixDialog.Trigger asChild>
         <button
           className={cn(
-            "dark grid aspect-square h-12 place-content-center rounded border shadow-sm dark:border-red-600 dark:bg-red-600/10",
+            "group relative grid aspect-square h-12 place-content-center rounded border shadow-sm dark:border-red-600 dark:bg-red-600/10",
             "hover:lg:shadow-md dark:hover:lg:shadow-red-800",
             // classes for disabled state 👇
             "dark:disabled:border-neutral-600 dark:disabled:bg-neutral-800"
           )}
           disabled={isDisabled}>
+          {/* Tooltip 👇 */}
+          <span
+            className={cn(
+              "pointer-events-none absolute top-[0.5rem] whitespace-nowrap rounded border bg-white px-3 py-1 text-sm font-bold shadow-md",
+              "text-red-500 dark:border-neutral-600 dark:bg-neutral-800",
+              "translate-x-14 translate-y-3 opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"
+            )}>
+            Clear all content
+          </span>
+
           <DeleteIcon disabled={isDisabled} />
         </button>
       </RadixDialog.Trigger>
@@ -56,7 +66,8 @@ export const ClearAllButton = () => {
             "rounded-lg p-6 text-center text-neutral-800 shadow-lg dark:text-gray-300",
             "border border-gray-100 focus:outline-none dark:border-gray-600",
             "fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]",
-            "data-[state=open]:animate-contentShow"
+            "data-[state=open]:animate-contentShow",
+            "data-[state=closed]:animate-contentHide"
           )}>
           <RadixDialog.Title className="mb-6 text-center text-2xl font-bold">
             Delete Content

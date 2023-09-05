@@ -1,8 +1,8 @@
-import { memo, CSSProperties } from "react";
+import { memo } from "react";
 import { Link } from "react-router-dom";
 import { useAtom } from "jotai";
-import { appDataAtom, postStyleAtom } from "../../store/appState";
-import { DeleteIcon } from "../../assets/DeleteIconSVG";
+import { postStyleAtom } from "../../store/appState";
+import { DeletePostButton } from "./DeletePostButton";
 import { cn } from "../../lib/classNameHelper";
 
 type postItemProps = {
@@ -13,14 +13,8 @@ type postItemProps = {
 
 export const PostItem = memo(
   ({ postId, dateToDisplay, titleToDisplay }: postItemProps) => {
-    const [appData, setAppData] = useAtom(appDataAtom);
     const [postStyle] = useAtom(postStyleAtom);
     const isGridMode = postStyle === "grid";
-
-    const handleDelete = () => {
-      const filteredAppData = appData.filter((post) => post.id !== postId);
-      setAppData(filteredAppData);
-    };
 
     return (
       <li
@@ -40,25 +34,19 @@ export const PostItem = memo(
             "px-4 pb-24 pt-4": isGridMode,
           })}>
           <h2
-            className="max-w-[--text-width] overflow-x-hidden text-ellipsis whitespace-nowrap text-lg font-bold"
-            style={
+            className={cn(
+              "overflow-x-hidden text-ellipsis whitespace-nowrap text-lg font-bold",
+              "max-w-[23ch] sm:max-w-[44ch] md:max-w-[54ch] lg:max-w-[76ch]",
               {
-                "--text-width": isGridMode ? "20ch" : "30ch",
-              } as CSSProperties
-            }>
+                "max-w-[20ch]": isGridMode,
+              }
+            )}>
             {titleToDisplay}
           </h2>
           <p className="mt-1 text-sm opacity-70">{dateToDisplay}</p>
         </Link>
 
-        <button
-          className={cn("h-24 bg-red-600/10 px-2", {
-            "absolute bottom-0 right-0 z-20 h-auto bg-transparent py-3":
-              isGridMode,
-          })}
-          onClick={handleDelete}>
-          <DeleteIcon className="h-5 hover:opacity-80" />
-        </button>
+        <DeletePostButton isGridMode={isGridMode} postId={postId} />
       </li>
     );
   }

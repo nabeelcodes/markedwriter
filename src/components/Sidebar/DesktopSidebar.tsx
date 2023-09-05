@@ -3,7 +3,7 @@ import { GFMButton } from "./GFMButton";
 import { RRButton } from "./RRButton";
 import { PaneVisibilityButton } from "./PaneVisibilityButton";
 import { DownloadButton } from "./DownloadButton";
-import { ClearAllButton } from "./ClearAll";
+import { ClearAllButton } from "./ClearAllButton";
 import { cn } from "../../lib/classNameHelper";
 
 export const DesktopSidebar = memo(() => {

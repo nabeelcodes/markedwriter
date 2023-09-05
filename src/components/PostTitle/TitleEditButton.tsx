@@ -30,7 +30,8 @@ export const TitleEditButton = () => {
             "border border-gray-100 focus:outline-none dark:border-gray-600",
             "fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]",
             "transition-[top]",
-            "data-[state=open]:animate-contentShow"
+            "data-[state=open]:animate-contentShow",
+            "data-[state=closed]:animate-contentHide"
           )}>
           <RadixDialog.Title className="mb-6 text-center text-2xl font-bold">
             Rename File
