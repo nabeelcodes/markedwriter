@@ -41,7 +41,8 @@ export const MarkdownInput = ({ pageId }: markdownInputProps) => {
         {
           /* Styles to apply when Markdown Display pane is hidden 👇 */
           /* paneVisible : initially TRUE on app load */
-          "md:max-w-4xl md:dark:bg-neutral-800": !paneVisible,
+          "md:max-w-4xl md:dark:bg-neutral-800":
+            !paneVisible.markdownPaneVisible,
         }
       )}
       id="editor"

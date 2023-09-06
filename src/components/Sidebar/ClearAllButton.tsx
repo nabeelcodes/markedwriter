@@ -8,7 +8,11 @@ import { updatePostContent } from "../../lib/updatePostContent";
 import { DeleteIcon } from "../../assets/DeleteIconSVG";
 import { cn } from "../../lib/classNameHelper";
 
-export const ClearAllButton = () => {
+type ClearAllButtonProps = {
+  onMobile?: boolean;
+};
+
+export const ClearAllButton = ({ onMobile }: ClearAllButtonProps) => {
   const { id } = useParams();
   const [appData, setAppData] = useAtom(appDataAtom);
   const [radixDialogOpen, setRadixDialogOpen] = useState(false);
@@ -35,14 +39,19 @@ export const ClearAllButton = () => {
         <button
           className={cn(
             "group relative grid aspect-square h-12 place-content-center rounded border shadow-sm dark:border-red-600 dark:bg-red-600/10",
-            "hover:lg:shadow-md dark:hover:lg:shadow-red-800",
+            "hover:xl:shadow-md dark:hover:xl:shadow-red-800",
             // classes for disabled state 👇
-            "dark:disabled:border-neutral-600 dark:disabled:bg-neutral-800"
+            "dark:disabled:border-neutral-600 dark:disabled:bg-neutral-800",
+            {
+              "border-none bg-transparent shadow-none dark:bg-transparent":
+                onMobile,
+            }
           )}
           disabled={isDisabled}>
           {/* Tooltip 👇 */}
           <span
             className={cn(
+              "hidden xl:block",
               "pointer-events-none absolute top-[0.5rem] whitespace-nowrap rounded border bg-white px-3 py-1 text-sm font-bold shadow-md",
               "text-red-500 dark:border-neutral-600 dark:bg-neutral-800",
               "translate-x-14 translate-y-3 opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"
@@ -60,8 +69,8 @@ export const ClearAllButton = () => {
         <RadixDialog.Content
           className={cn(
             "md:frosted-glass-bg",
-            "z-30",
-            "w-max max-w-[540px]",
+            "z-50",
+            "w-full max-w-[360px] md:max-w-[540px]",
             "bg-white dark:bg-neutral-800",
             "rounded-lg p-6 text-center text-neutral-800 shadow-lg dark:text-gray-300",
             "border border-gray-100 focus:outline-none dark:border-gray-600",
@@ -73,10 +82,16 @@ export const ClearAllButton = () => {
             Delete Content
           </RadixDialog.Title>
 
-          <p>Are you sure you want to clear all content?</p>
+          <p className="text-xs md:text-base">
+            Are you sure you want to clear all content?
+          </p>
 
-          <blockquote className="mt-4 rounded bg-red-600/20 p-4 font-bold text-red-500">
-            ⚠️ Caution : Content once deleted will be un-recoverable
+          <blockquote className="mt-4 rounded bg-red-600/20 p-4 text-xs font-bold text-red-500 md:text-base">
+            <span className="hidden md:inline-block">
+              ⚠️ Caution&nbsp;:&nbsp;
+            </span>
+            <span className="md:hidden">⚠️&nbsp;</span>
+            Content once deleted will be un-recoverable
           </blockquote>
 
           <div className="mt-4 flex items-center justify-between gap-x-4">
@@ -90,7 +105,8 @@ export const ClearAllButton = () => {
               className={cn(
                 "w-full rounded border px-4 py-2 font-bold",
                 "border-black bg-black text-white",
-                "dark:border-white dark:bg-white dark:text-black"
+                "dark:border-white dark:bg-white dark:text-black",
+                "whitespace-nowrap"
               )}
               onClick={handleClick}>
               Delete Permanently

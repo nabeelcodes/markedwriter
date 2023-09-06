@@ -1,10 +1,11 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useCallback, useEffect } from "react";
 import { useAtom } from "jotai";
 import { visibilityAtom } from "../store/appState";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { PageTitle } from "../components/PostTitle/PageTitle";
 import { MarkdownInput } from "../components/Markdowns/MarkdownInput";
+import { MobileSidebar } from "../components/Sidebar/MobileSidebar";
 import { StatusBar } from "../components/StatusBar/StatusBar";
 import { SidebarLoader } from "../components/Sidebar/SidebarLoader";
 import { Loader } from "../components/Utils/Loader";
@@ -24,9 +25,33 @@ const DesktopSidebar = lazy(() =>
 );
 
 export const MarkdownEditor = () => {
-  const [paneVisible] = useAtom(visibilityAtom);
+  const [paneVisible, setPaneVisible] = useAtom(visibilityAtom);
   const { id } = useParams();
   useIdValidator(id);
+
+  const resizeHandler = useCallback(() => {
+    /* resizeHandler : sets state for editingPane and markdownPane based on viewport width */
+    if (window.innerWidth < 1280) {
+      setPaneVisible((prevState) => ({
+        ...prevState,
+        editingPaneVisible: prevState.markdownPaneVisible ? false : true,
+      }));
+    } else {
+      setPaneVisible({
+        editingPaneVisible: true,
+        markdownPaneVisible: true,
+      });
+    }
+  }, [setPaneVisible]);
+
+  useEffect(() => {
+    /* run resizeHandler, once on load */
+    resizeHandler();
+
+    window.addEventListener("resize", resizeHandler);
+
+    return () => window.removeEventListener("resize", resizeHandler);
+  }, [resizeHandler]);
 
   return (
     <>
@@ -37,11 +62,6 @@ export const MarkdownEditor = () => {
       <div className="container2000 relative">
         <PageTitle />
 
-        {/* Desktop Sidebar */}
-        <Suspense fallback={<SidebarLoader />}>
-          <DesktopSidebar />
-        </Suspense>
-
         <section
           /* 
           64.5px = Height of Header
@@ -49,17 +69,30 @@ export const MarkdownEditor = () => {
           */
           className={cn(
             "flex",
-            "-z-10 xl:ml-[88.8px]",
+            "-z-10",
             "min-h-[calc(100vh-64.5px-68.6px)] md:min-h-[calc(100vh-64.5px)]"
           )}
           aria-label="wrapper for input box">
-          <MarkdownInput pageId={id} />
+          {/* Desktop Sidebar 👇 */}
+          <Suspense fallback={<SidebarLoader />}>
+            <DesktopSidebar />
+          </Suspense>
 
+          {/* Editing Pane 👇 */}
+          {paneVisible.editingPaneVisible && <MarkdownInput pageId={id} />}
+
+          {/* Markdown Pane 👇 */}
           <Suspense fallback={<Loader />}>
-            {paneVisible && <RenderedMarkdown pageId={id} />}
+            {paneVisible.markdownPaneVisible && (
+              <RenderedMarkdown pageId={id} />
+            )}
           </Suspense>
         </section>
 
+        {/* Floating sidebar for Tablets and Cellphones 👇 */}
+        <MobileSidebar />
+
+        {/* Status Bar 👇 */}
         <StatusBar />
       </div>
     </>

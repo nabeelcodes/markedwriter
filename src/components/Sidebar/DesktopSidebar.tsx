@@ -12,7 +12,7 @@ export const DesktopSidebar = memo(() => {
       className={cn(
         "hidden xl:block",
         "h-[calc(100vh-92.8px)] p-5",
-        "fixed left-0",
+        "sticky left-0 top-[64.5px]",
         "dark:bg-neutral-800",
         "border-r border-gray-200 dark:border-neutral-600"
       )}>

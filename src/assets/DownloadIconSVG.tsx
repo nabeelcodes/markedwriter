@@ -5,7 +5,7 @@ export const DownloadIcon = () => {
       height="33"
       viewBox="0 0 25 33"
       xmlns="http://www.w3.org/2000/svg"
-      className="h-7 fill-black dark:fill-gray-300">
+      className="h-6 fill-black dark:fill-gray-300">
       <g clipPath="url(#clip0_211_201)">
         <mask
           id="mask0_211_201"
