@@ -26,6 +26,6 @@ export const RRAtom = atom(true);
 
 /* State to enable or disable Markdown-display pane */
 export const visibilityAtom = atom({
-  editingPaneVisible: true,
-  markdownPaneVisible: true,
+  editingPaneVisibility: true,
+  markdownPaneVisibility: true,
 });

@@ -25,24 +25,24 @@ const DesktopSidebar = lazy(() =>
 );
 
 export const MarkdownEditor = () => {
-  const [paneVisible, setPaneVisible] = useAtom(visibilityAtom);
+  const [paneVisibility, setPaneVisibility] = useAtom(visibilityAtom);
   const { id } = useParams();
   useIdValidator(id);
 
   const resizeHandler = useCallback(() => {
     /* resizeHandler : sets state for editingPane and markdownPane based on viewport width */
     if (window.innerWidth < 1280) {
-      setPaneVisible((prevState) => ({
-        ...prevState,
-        editingPaneVisible: prevState.markdownPaneVisible ? false : true,
-      }));
+      setPaneVisibility({
+        editingPaneVisibility: true,
+        markdownPaneVisibility: false,
+      });
     } else {
-      setPaneVisible({
-        editingPaneVisible: true,
-        markdownPaneVisible: true,
+      setPaneVisibility({
+        editingPaneVisibility: true,
+        markdownPaneVisibility: true,
       });
     }
-  }, [setPaneVisible]);
+  }, [setPaneVisibility]);
 
   useEffect(() => {
     /* run resizeHandler, once on load */
@@ -79,11 +79,13 @@ export const MarkdownEditor = () => {
           </Suspense>
 
           {/* Editing Pane 👇 */}
-          {paneVisible.editingPaneVisible && <MarkdownInput pageId={id} />}
+          {paneVisibility.editingPaneVisibility && (
+            <MarkdownInput pageId={id} />
+          )}
 
           {/* Markdown Pane 👇 */}
           <Suspense fallback={<Loader />}>
-            {paneVisible.markdownPaneVisible && (
+            {paneVisibility.markdownPaneVisibility && (
               <RenderedMarkdown pageId={id} />
             )}
           </Suspense>

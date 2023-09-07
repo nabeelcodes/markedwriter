@@ -5,18 +5,18 @@ import { EyeIconClosed, EyeIconOpen } from "../../assets/EyeIconSVG";
 import { cn } from "../../lib/classNameHelper";
 
 export const PaneVisibilityButton = () => {
-  const [paneVisible, setPaneVisible] = useAtom(visibilityAtom);
+  const [paneVisibility, setPaneVisible] = useAtom(visibilityAtom);
 
   const toggleHandler = () => {
     setPaneVisible((prevState) =>
       window.innerWidth < 1280
         ? {
-            editingPaneVisible: prevState.markdownPaneVisible ? true : false,
-            markdownPaneVisible: !prevState.markdownPaneVisible,
+            editingPaneVisibility: !prevState.editingPaneVisibility,
+            markdownPaneVisibility: !prevState.markdownPaneVisibility,
           }
         : {
-            editingPaneVisible: true,
-            markdownPaneVisible: !prevState.markdownPaneVisible,
+            editingPaneVisibility: true,
+            markdownPaneVisibility: !prevState.markdownPaneVisibility,
           }
     );
   };
@@ -32,11 +32,15 @@ export const PaneVisibilityButton = () => {
           "dark:border-neutral-600 dark:bg-neutral-800 dark:text-green-500",
           "translate-x-14 translate-y-3 opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"
         )}>
-        {paneVisible.markdownPaneVisible ? "Hide" : "Show"} Markdown display
-        pane
+        {paneVisibility.markdownPaneVisibility ? "Hide" : "Show"} Markdown
+        display pane
       </span>
 
-      {paneVisible.markdownPaneVisible ? <EyeIconOpen /> : <EyeIconClosed />}
+      {paneVisibility.markdownPaneVisibility ? (
+        <EyeIconOpen />
+      ) : (
+        <EyeIconClosed />
+      )}
     </SidebarButton>
   );
 };
