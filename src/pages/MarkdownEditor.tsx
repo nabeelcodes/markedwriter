@@ -1,6 +1,6 @@
-import { lazy, Suspense, useCallback, useEffect } from "react";
+import { lazy, Suspense, useCallback, useEffect, useRef } from "react";
 import { useAtom } from "jotai";
-import { visibilityAtom } from "../store/appState";
+import { scrollAtom, visibilityAtom } from "../store/appState";
 import { Helmet } from "react-helmet-async";
 import { useParams } from "react-router-dom";
 import { PageTitle } from "../components/PostTitle/PageTitle";
@@ -26,8 +26,11 @@ const DesktopSidebar = lazy(() =>
 
 export const MarkdownEditor = () => {
   const [paneVisibility, setPaneVisibility] = useAtom(visibilityAtom);
+  const [scrollValue, setScrollValue] = useAtom(scrollAtom);
   const { id } = useParams();
   useIdValidator(id);
+
+  const debounceRef = useRef<number>();
 
   const resizeHandler = useCallback(() => {
     /* resizeHandler : sets state for editingPane and markdownPane based on viewport width */
@@ -44,11 +47,26 @@ export const MarkdownEditor = () => {
     }
   }, [setPaneVisibility]);
 
+  const scrollSyncHandler = useCallback(() => {
+    clearTimeout(debounceRef.current);
+
+    if (window.scrollY) {
+      debounceRef.current = setTimeout(() => {
+        setScrollValue(window.scrollY);
+        console.log(window.scrollY);
+      }, 1500);
+    }
+  }, [setScrollValue]);
+
   useEffect(() => {
     window.addEventListener("resize", resizeHandler);
+    window.addEventListener("scroll", scrollSyncHandler);
 
-    return () => window.removeEventListener("resize", resizeHandler);
-  }, [resizeHandler]);
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+      window.removeEventListener("scroll", scrollSyncHandler);
+    };
+  }, [resizeHandler, scrollSyncHandler]);
 
   return (
     <>

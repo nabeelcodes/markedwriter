@@ -29,3 +29,5 @@ export const visibilityAtom = atom({
   editingPaneVisibility: true,
   markdownPaneVisibility: true,
 });
+
+export const scrollAtom = atom(0);
