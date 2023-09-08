@@ -16,6 +16,10 @@ export default {
           from: { opacity: 0 },
           to: { opacity: 1 },
         },
+        overlayHide: {
+          from: { opacity: 0 },
+          to: { opacity: 1 },
+        },
         contentShow: {
           from: { opacity: 0, transform: "translate(-50%, -40%) scale(0.8)" },
           to: { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
@@ -24,11 +28,22 @@ export default {
           from: { opacity: 1, transform: "translate(-50%, -50%) scale(1)" },
           to: { opacity: 0, transform: "translate(-50%, -40%) scale(0.8)" },
         },
+        menuReveal: {
+          from: { opacity: 0, transform: "translateY(20%)" },
+          to: { opacity: 1, transform: "translateY(0%)" },
+        },
+        menuHide: {
+          from: { opacity: 1, transform: "translateY(0%)" },
+          to: { opacity: 0, transform: "translateY(20%)" },
+        },
       },
       animation: {
         overlayShow: "overlayShow 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+        overlayHide: "overlayHide 200ms cubic-bezier(0.16, 1, 0.3, 1)",
         contentShow: "contentShow 200ms cubic-bezier(0.16, 1, 0.3, 1)",
         contentHide: "contentHide 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+        menuReveal: "menuReveal 200ms cubic-bezier(0.16, 1, 0.3, 1)",
+        menuHide: "menuHide 200ms cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },
