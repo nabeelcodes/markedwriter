@@ -5,10 +5,10 @@ import { EyeIconClosed, EyeIconOpen } from "../../assets/EyeIconSVG";
 import { cn } from "../../lib/classNameHelper";
 
 export const PaneVisibilityButton = () => {
-  const [paneVisibility, setPaneVisible] = useAtom(visibilityAtom);
+  const [paneVisibility, setPaneVisibility] = useAtom(visibilityAtom);
 
   const toggleHandler = () => {
-    setPaneVisible((prevState) =>
+    setPaneVisibility((prevState) =>
       window.innerWidth < 1280
         ? {
             editingPaneVisibility: !prevState.editingPaneVisibility,

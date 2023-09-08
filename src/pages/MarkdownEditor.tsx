@@ -32,10 +32,10 @@ export const MarkdownEditor = () => {
   const resizeHandler = useCallback(() => {
     /* resizeHandler : sets state for editingPane and markdownPane based on viewport width */
     if (window.innerWidth < 1280) {
-      setPaneVisibility({
-        editingPaneVisibility: true,
-        markdownPaneVisibility: false,
-      });
+      setPaneVisibility((prevState) => ({
+        ...prevState,
+        markdownPaneVisibility: !prevState.editingPaneVisibility,
+      }));
     } else {
       setPaneVisibility({
         editingPaneVisibility: true,
@@ -45,9 +45,6 @@ export const MarkdownEditor = () => {
   }, [setPaneVisibility]);
 
   useEffect(() => {
-    /* run resizeHandler, once on load */
-    resizeHandler();
-
     window.addEventListener("resize", resizeHandler);
 
     return () => window.removeEventListener("resize", resizeHandler);

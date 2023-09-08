@@ -1,7 +1,8 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
-import { appDataAtom } from "../store/appState";
+import { appDataAtom, visibilityAtom } from "../store/appState";
 import { NewFileIconSVG } from "../assets/NewFileIconSVG";
 import { PlusIconSVG } from "../assets/PlusIconSVG";
 import { PostList } from "../components/PostCards/PostList";
@@ -9,6 +10,20 @@ import { PostList } from "../components/PostCards/PostList";
 export const LandingPage = () => {
   const navigator = useNavigate();
   const [appData, setAppData] = useAtom(appDataAtom);
+  const [, setPaneVisibility] = useAtom(visibilityAtom);
+
+  useEffect(() => {
+    /* Setting initial state for pane visibility for 
+    MarkdownEditor page */
+    (function initialStateSetter() {
+      if (window.innerWidth < 1280) {
+        setPaneVisibility({
+          editingPaneVisibility: true,
+          markdownPaneVisibility: false,
+        });
+      }
+    })();
+  }, [setPaneVisibility]);
 
   const createNewMarkdownFile = () => {
     const slug = Date.now().toString();
