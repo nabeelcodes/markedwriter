@@ -22,7 +22,7 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
       className={cn(
         "max-w-full",
         "shrink grow basis-1/2 p-5 pb-20 md:p-8 md:pb-20 xl:p-10",
-        "border-l border-gray-200 dark:border-neutral-600"
+        "border-gray-200 dark:border-neutral-600 xl:border-l"
       )}>
       <article
         dangerouslySetInnerHTML={{

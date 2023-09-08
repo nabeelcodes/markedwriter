@@ -27,7 +27,7 @@ export const MobileSidebarMenu = () => {
           <div
             className={cn(
               "md:frosted-glass-bg",
-              "absolute bottom-16 right-0 z-20 flex flex-col gap-y-2 rounded-full border bg-white shadow-md dark:border-neutral-600 dark:bg-neutral-800"
+              "absolute bottom-16 right-0 z-20 flex flex-col gap-y-2 rounded-full border bg-white py-2 shadow-md dark:border-neutral-600 dark:bg-neutral-800"
             )}>
             <RadixDropdownMenu.Item
               asChild
