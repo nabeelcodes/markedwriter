@@ -17,7 +17,7 @@ export const TitleEditButton = () => {
       </RadixDialog.Trigger>
 
       <RadixDialog.Portal>
-        <RadixDialog.Overlay className="fixed inset-0 z-30 backdrop-blur-[2px] data-[state=open]:animate-overlayShow" />
+        <RadixDialog.Overlay className="fixed inset-0 z-20 backdrop-blur-[2px] data-[state=open]:animate-overlayShow" />
 
         <RadixDialog.Content
           className={cn(

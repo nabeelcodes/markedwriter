@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    overflow-x: hidden;
+  }
+}
+
 @layer utilities {
   /* Custom css classes should go here as
 	an extension to TW utilities */
@@ -29,7 +35,7 @@
   }
 
   .popOnHover {
-    @apply transition hover:lg:-translate-y-1 hover:lg:shadow-md;
+    @apply transition hover:lg:-translate-y-1 hover:lg:shadow-md dark:hover:lg:shadow-neutral-700;
   }
 }
 

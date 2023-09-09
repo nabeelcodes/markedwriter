@@ -33,7 +33,7 @@ export const RRButton = forwardRef<Ref, RRButtonProps>(
 
         <span
           className={cn(
-            "relative after:absolute after:-top-2 after:right-0.5 after:rounded-full after:bg-green-500 after:px-1 after:text-[0.5rem] after:font-bold after:text-white after:content-['ON'] dark:after:text-black",
+            "relative after:absolute after:-top-2 after:right-0.5 after:rounded-full after:bg-green-400 after:px-1 after:text-[0.5rem] after:font-bold after:text-black after:content-['ON']",
             {
               "after:content-['OFF']": !rrState,
             }

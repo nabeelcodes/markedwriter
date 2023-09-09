@@ -11,14 +11,38 @@ import {
 } from "@radix-ui/react-dialog";
 import { CloseIcon } from "../../assets/CloseIconSVG";
 import { CmdIcon } from "../../assets/CmdIconSVG";
+import { useEffect } from "react";
+import { useMousePosition } from "../../hooks/useMousePosition";
 
 export const NavItemShortcuts = () => {
+  const { cursorPosition } = useMousePosition("shortcuts-button");
+
+  useEffect(() => {
+    const tooltip = document.getElementById(
+      "shortcuts-tooltip"
+    ) as HTMLSpanElement | null;
+
+    if (tooltip && cursorPosition.x && cursorPosition.y) {
+      tooltip.style.top = `${cursorPosition?.y + 22}px`;
+      tooltip.style.left = `${cursorPosition?.x + 9}px`;
+    }
+  }, [cursorPosition.x, cursorPosition.y]);
+
   return (
     <Root>
       <Trigger asChild>
-        <li className="h-[19px] list-none">
-          <button aria-label="Shortcuts Button">
+        <li className="list-none">
+          <button
+            id="shortcuts-button"
+            className="group relative p-2"
+            aria-label="Shortcuts Button">
             <CmdIcon />
+            {/* Information Tooltip on hover 👇 */}
+            <span
+              id="shortcuts-tooltip"
+              className="fixed z-20 hidden whitespace-nowrap rounded bg-neutral-800 px-2 py-0.5 text-xs font-bold tracking-wide text-gray-100 dark:bg-gray-300 dark:text-neutral-800 group-hover:xl:block">
+              Useful shortcuts
+            </span>
           </button>
         </li>
       </Trigger>

@@ -34,7 +34,7 @@ export const MarkdownInput = ({ pageId }: markdownInputProps) => {
       className={cn(
         "grow basis-1/2",
         "font-mono text-gray-400",
-        "mx-auto max-w-lg p-8 md:max-w-full",
+        "mx-auto max-w-lg p-8 pb-[10rem] md:max-w-full",
         "disable-scrollbar resize-none",
         "border-none outline-none focus:outline-none",
         "dark:bg-neutral-800 dark:text-gray-500 md:dark:bg-neutral-900/30",

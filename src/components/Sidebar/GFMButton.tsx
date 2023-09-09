@@ -33,7 +33,7 @@ export const GFMButton = forwardRef<Ref, GFMButtonProps>(
 
         <span
           className={cn(
-            "relative after:absolute after:-top-1 after:right-1 after:rounded-full after:bg-green-500 after:px-1 after:text-[0.5rem] after:font-bold after:text-white after:content-['ON'] dark:after:text-black",
+            "relative after:absolute after:-top-1 after:right-1 after:rounded-full after:bg-green-400 after:px-1 after:text-[0.5rem] after:font-bold after:text-black after:content-['ON']",
             {
               "after:content-['OFF']": !gfmState,
             }

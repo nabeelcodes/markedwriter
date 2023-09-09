@@ -49,7 +49,7 @@ export const ClearAllButton = forwardRef<Ref, ClearAllButtonProps>(
               // classes for disabled state 👇
               "dark:disabled:border-neutral-600 dark:disabled:bg-neutral-800",
               {
-                "border-none bg-transparent shadow-none dark:bg-transparent":
+                "border-none bg-transparent shadow-none dark:bg-transparent dark:disabled:bg-transparent":
                   onMobile,
               }
             )}
