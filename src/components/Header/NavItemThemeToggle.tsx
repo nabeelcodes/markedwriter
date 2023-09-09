@@ -1,26 +1,15 @@
 import { useAtom } from "jotai";
-import { forwardRef, useEffect } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import { DayIcon } from "../../assets/DayIconSVG";
 import { NightIcon } from "../../assets/NightIconSVG";
 import { themeAtom } from "../../store/appState";
-import { useMousePosition } from "../../hooks/useMousePosition";
+import { handleMousemove } from "../../lib/mouseMoveHelper";
 
 export const NavItemThemeToggle = forwardRef<HTMLLIElement>(
   (props, forwardedRef) => {
     const htmlTagCLasslist = document.documentElement.classList;
     const [appTheme, setAppTheme] = useAtom(themeAtom);
-    const { cursorPosition } = useMousePosition("theme-button");
-
-    useEffect(() => {
-      const tooltip = document.getElementById(
-        "theme-tooltip"
-      ) as HTMLSpanElement | null;
-
-      if (tooltip && cursorPosition.x && cursorPosition.y) {
-        tooltip.style.top = `${cursorPosition?.y + 22}px`;
-        tooltip.style.left = `${cursorPosition?.x + 9}px`;
-      }
-    }, [cursorPosition.x, cursorPosition.y]);
+    const tooltipRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
       if (appTheme === "dark") {
@@ -43,10 +32,15 @@ export const NavItemThemeToggle = forwardRef<HTMLLIElement>(
     return (
       <li className="list-none" ref={forwardedRef} {...props}>
         <button
-          id="theme-button"
+          aria-label="Theme Toggle Button"
           className="group relative flex w-full items-center justify-between xl:p-2"
           onClick={handleDarkMode}
-          aria-label="Theme Toggle Button">
+          onMouseMove={(event) =>
+            handleMousemove(event, tooltipRef, {
+              offsetX: 10,
+              offsetY: 18,
+            })
+          }>
           {appTheme === "dark" ? <DayIcon /> : <NightIcon />}
 
           <span className="md:hidden">
@@ -55,7 +49,7 @@ export const NavItemThemeToggle = forwardRef<HTMLLIElement>(
 
           {/* Information Tooltip on hover 👇 */}
           <span
-            id="theme-tooltip"
+            ref={tooltipRef}
             className="fixed z-20 hidden whitespace-nowrap rounded bg-neutral-800 px-2 py-0.5 text-xs font-bold tracking-wide text-gray-100 dark:bg-gray-300 dark:text-neutral-800 group-hover:xl:block">
             Theme Toggle
           </span>
