@@ -6,7 +6,6 @@ export const AppLogoLight = () => {
       viewBox="0 0 105 45"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute top-[11.2px]"
       aria-label="Website Logo light">
       <path
         d="M30.9223 38.1961H0L30.9223 0V38.1961Z"

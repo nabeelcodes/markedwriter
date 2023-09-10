@@ -39,10 +39,10 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
           "dark:prose-code:bg-green-600/10 dark:prose-code:text-green-400",
           "prose-code:before:content-[''] prose-code:after:content-['']",
           // prose - code-block(pre > code) modifications 👇
-          "[&>pre]:px-0",
+          "[&>pre>code]:p-0 [&>pre>code]:before:hidden [&>pre>code]:after:hidden",
           "[&>pre>code]:bg-transparent [&>pre>code]:text-green-600 dark:[&>pre>code]:bg-transparent dark:[&>pre>code]:text-green-400",
           // prose - pre tag modifications 👇
-          "prose-pre:border prose-pre:border-gray-200 prose-pre:bg-transparent",
+          "prose-pre:px- prose-pre:py- prose-pre:border prose-pre:border-gray-200 prose-pre:bg-transparent",
           "dark:prose-pre:border-neutral-600",
           // prose - table modifications 👇
           "prose-table:border prose-th:p-4 prose-th:text-left prose-th:text-lg prose-td:px-4 prose-td:py-3 prose-td:text-left dark:prose-table:border-gray-600",

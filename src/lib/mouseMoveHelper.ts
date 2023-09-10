@@ -1,18 +1,19 @@
 type funcProps = (
-  e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ref: React.RefObject<HTMLSpanElement>,
-  {
-    offsetX,
-    offsetY,
-  }: {
+  event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  targetRef: React.RefObject<HTMLSpanElement>,
+  offset: {
     offsetX: number;
     offsetY: number;
   }
 ) => void;
 
-export const handleMousemove: funcProps = (e, ref, { offsetX, offsetY }) => {
-  if (ref?.current) {
-    ref.current.style.left = `${e.clientX + offsetX}px`;
-    ref.current.style.top = `${e.clientY + offsetY}px`;
+export const handleMousemove: funcProps = (
+  event,
+  targetRef,
+  { offsetX, offsetY }
+) => {
+  if (targetRef?.current) {
+    targetRef.current.style.left = `${event.clientX + offsetX}px`;
+    targetRef.current.style.top = `${event.clientY + offsetY}px`;
   }
 };

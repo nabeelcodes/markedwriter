@@ -2,8 +2,12 @@ import { memo } from "react";
 import { WordCount } from "./WordCount";
 import { ReadingTime } from "./ReadingTime";
 import { cn } from "../../lib/classNameHelper";
+import { useAtom } from "jotai";
+import { visibilityAtom } from "../../store/appState";
 
 export const StatusBar = memo(() => {
+  const [paneVisibility] = useAtom(visibilityAtom);
+
   return (
     <section
       className={cn(
@@ -17,7 +21,9 @@ export const StatusBar = memo(() => {
       <div
         aria-label="inner wrapper for status bar"
         className="container2000 flex w-full items-center justify-between">
-        <span className="font-bold">Markdown</span>
+        <span className="font-bold">
+          {paneVisibility.markdownPaneVisibility ? "Markdown" : "Editor"}
+        </span>
 
         <div className="flex items-center justify-between gap-8 font-bold">
           <WordCount />
