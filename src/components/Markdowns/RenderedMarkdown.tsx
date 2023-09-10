@@ -20,8 +20,8 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
   return (
     <section
       className={cn(
-        "max-w-full",
-        "shrink grow basis-1/2 p-5 pb-20 md:p-8 md:pb-20 xl:p-10 xl:pb-20",
+        "max-w-full shrink grow basis-[40%]",
+        "p-5 pb-20 md:p-8 md:pb-20 xl:p-10 xl:pb-20",
         "border-gray-200 dark:border-neutral-600 xl:border-l"
       )}>
       <article
@@ -29,8 +29,9 @@ export const RenderedMarkdown = ({ pageId }: renderedMarkdownProps) => {
           __html: parsedMarkdown ?? "",
         }}
         className={cn(
-          cssStyles,
-          "prose prose-violet max-w-full dark:prose-invert",
+          cssStyles.input,
+          cssStyles.apply,
+          "prose prose-violet mx-auto dark:prose-invert",
           // prose - anchor tag modifications 👇
           "prose-a:border-b-2 prose-a:border-violet-500 prose-a:pb-[0.2rem] prose-a:no-underline hover:prose-a:opacity-80",
           // prose - inline-code tag modifications 👇

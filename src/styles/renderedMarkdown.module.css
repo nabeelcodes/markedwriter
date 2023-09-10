@@ -2,3 +2,9 @@ input[type="checkbox"] {
   margin: 0 6px -6px 0;
   display: inline-block;
 }
+
+@media (max-width: 1279px) {
+  .apply {
+    max-width: 100%;
+  }
+}

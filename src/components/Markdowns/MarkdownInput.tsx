@@ -32,7 +32,7 @@ export const MarkdownInput = ({ pageId }: markdownInputProps) => {
   return (
     <textarea
       className={cn(
-        "grow basis-1/2",
+        "grow basis-[40%]",
         "font-mono text-gray-400",
         "mx-auto max-w-lg p-8 pb-[10rem] md:max-w-full",
         "disable-scrollbar resize-none",
