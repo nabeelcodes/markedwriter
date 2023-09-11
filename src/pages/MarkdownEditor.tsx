@@ -1,4 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect } from "react";
+import { ErrorBoundary } from "react-error-boundary";
 import { useAtom } from "jotai";
 import { visibilityAtom } from "../store/appState";
 import { Helmet } from "react-helmet-async";
@@ -9,6 +10,7 @@ import { MobileSidebar } from "../components/Sidebar/MobileSidebar";
 import { StatusBar } from "../components/StatusBar/StatusBar";
 import { SidebarLoader } from "../components/Sidebar/SidebarLoader";
 import { Loader } from "../components/Utils/Loader";
+import { ShowError } from "../components/Utils/ShowError";
 import { useIdValidator } from "../hooks/useIdValidator";
 import { cn } from "../lib/classNameHelper";
 
@@ -81,11 +83,13 @@ export const MarkdownEditor = () => {
           )}
 
           {/* Markdown Pane 👇 */}
-          <Suspense fallback={<Loader />}>
-            {paneVisibility.markdownPaneVisibility && (
-              <RenderedMarkdown pageId={id} />
-            )}
-          </Suspense>
+          <ErrorBoundary fallback={<ShowError />}>
+            <Suspense fallback={<Loader />}>
+              {paneVisibility.markdownPaneVisibility && (
+                <RenderedMarkdown pageId={id} />
+              )}
+            </Suspense>
+          </ErrorBoundary>
         </section>
 
         {/* Floating sidebar for Tablets and Cellphones 👇 */}

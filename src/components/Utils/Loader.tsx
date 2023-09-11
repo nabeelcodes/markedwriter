@@ -4,10 +4,12 @@ import cssStyles from "../../styles/loaderAnimation.module.css";
 export const Loader = () => {
   return (
     <section
+      role="loader"
+      aria-label="loader spinner"
       className={cn(
-        "hidden place-content-center md:grid",
+        "grid place-content-center",
         "shrink grow basis-1/2 py-8 xl:p-10",
-        "border-l border-gray-200 dark:border-neutral-600"
+        "border-gray-200 dark:border-neutral-600 xl:border-l"
       )}>
       <div className={cssStyles.loaderGrid}>
         <div className="bg-neutral-800 dark:bg-white"></div>
