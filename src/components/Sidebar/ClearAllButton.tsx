@@ -70,29 +70,36 @@ export const ClearAllButton = forwardRef<Ref, ClearAllButtonProps>(
         </RadixDialog.Trigger>
 
         <RadixDialog.Portal>
-          <RadixDialog.Overlay className="fixed inset-0 z-30 backdrop-blur-[2px] data-[state=open]:animate-overlayShow" />
+          <RadixDialog.Overlay className="fixed inset-0 z-30 backdrop-blur-[2px] data-[state=open]:animate-overlayShow dark:bg-transparent max-md:bg-gray-900/10" />
 
           <RadixDialog.Content
             className={cn(
-              "md:frosted-glass-bg",
               "z-50",
-              "w-full max-w-[360px] md:max-w-[540px]",
+              "md:frosted-glass-bg",
+              // Position on vw < sm(640px) 👇
+              "fixed max-sm:bottom-4 max-sm:left-5 max-sm:right-5",
+              // Position on vw > sm(640px) 👇
+              "sm:w-full sm:max-w-[540px]",
+              "sm:left-[50%] sm:top-[50%] sm:translate-x-[-50%] sm:translate-y-[-50%]",
               "bg-white dark:bg-neutral-800",
               "rounded-lg p-6 text-center text-neutral-800 shadow-lg dark:text-gray-300",
-              "border border-gray-100 focus:outline-none dark:border-gray-600",
-              "fixed left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]",
+              "border-2 border-white focus:outline-none dark:border dark:border-gray-600",
+              // Animation on vw < sm(640px) 👇
+              "max-sm:data-[state=open]:animate-contentShowSM",
+              "max-sm:data-[state=closed]:animate-contentHideSM",
+              // Animation on vw > sm(640px) 👇
               "data-[state=open]:animate-contentShow",
               "data-[state=closed]:animate-contentHide"
             )}>
-            <RadixDialog.Title className="mb-6 text-center text-2xl font-bold">
+            <RadixDialog.Title className="mb-5 text-center text-2xl font-bold md:mb-6">
               Delete Content
             </RadixDialog.Title>
 
-            <p className="text-xs md:text-base">
+            <p className="text-sm md:text-base">
               Are you sure you want to clear all content?
             </p>
 
-            <blockquote className="mt-4 rounded bg-red-600/20 p-4 text-xs font-bold text-red-500 md:text-base">
+            <blockquote className="mt-3 rounded bg-red-600/20 p-3 text-xs font-bold text-red-500 md:mt-4 md:p-4 md:text-base">
               <span className="hidden md:inline-block">
                 ⚠️ Caution&nbsp;:&nbsp;
               </span>
@@ -100,16 +107,16 @@ export const ClearAllButton = forwardRef<Ref, ClearAllButtonProps>(
               Content once deleted will be un-recoverable
             </blockquote>
 
-            <div className="mt-4 flex items-center justify-between gap-x-4">
+            <div className="mt-4 flex flex-col-reverse items-center justify-between gap-4 text-sm sm:flex-row md:text-base">
               <RadixDialog.Close asChild>
-                <button className="w-full rounded border px-4 py-2 font-bold">
+                <button className="w-full rounded border px-4 py-3 font-bold md:py-2">
                   Cancel
                 </button>
               </RadixDialog.Close>
 
               <button
                 className={cn(
-                  "w-full rounded border px-4 py-2 font-bold",
+                  "w-full rounded border px-4 py-3 font-bold md:py-2",
                   "border-black bg-black text-white",
                   "dark:border-white dark:bg-white dark:text-black",
                   "whitespace-nowrap"
