@@ -48,20 +48,29 @@
 
 /* CUSTOM SCROLL-BAR CSS : START */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 8px;
   height: 4px;
 }
 
-::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0);
+html[class="dark"] ::-webkit-scrollbar-track {
+  background-color: #262626;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #afafaf;
-  border-radius: 8px;
+  background-color: #afafafb8;
+  border-radius: 100px;
+}
+
+html[class="dark"] ::-webkit-scrollbar-thumb {
+  background-color: #afafaf54;
+  border-radius: 100px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #606060;
+  background-color: #9b9b9b;
+}
+
+html[class="dark"] ::-webkit-scrollbar-thumb:hover {
+  background-color: #9b9b9b;
 }
 /* CUSTOM SCROLL-BAR CSS : END */

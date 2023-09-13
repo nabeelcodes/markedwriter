@@ -48,7 +48,7 @@ export const DeletePostButton = ({
             "sm:w-full sm:max-w-[540px]",
             "sm:left-[50%] sm:top-[50%] sm:translate-x-[-50%] sm:translate-y-[-50%]",
             "bg-white dark:bg-neutral-800",
-            "rounded-lg p-6 text-center text-neutral-800 shadow-lg dark:text-gray-300",
+            "rounded-lg p-6 text-center text-neutral-800 shadow-lg dark:text-gray-300 max-sm:p-3 max-sm:pt-5",
             "border-2 border-white focus:outline-none dark:border dark:border-gray-600",
             // Animation on vw < sm(640px) 👇
             "max-sm:data-[state=open]:animate-contentShowSM",
