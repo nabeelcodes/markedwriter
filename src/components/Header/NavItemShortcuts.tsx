@@ -35,7 +35,7 @@ export const NavItemShortcuts = () => {
             <span
               ref={tooltipRef}
               className="fixed z-20 hidden whitespace-nowrap rounded bg-neutral-800 px-2 py-0.5 text-xs font-bold tracking-wide text-gray-100 dark:bg-gray-300 dark:text-neutral-800 group-hover:xl:block">
-              Useful shortcuts
+              Show shortcuts
             </span>
           </button>
         </li>

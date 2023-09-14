@@ -19,7 +19,7 @@ export const NavItemAbout = forwardRef<HTMLLIElement>((props, forwardedRef) => {
         <span
           ref={tooltipRef}
           className="fixed z-20 hidden whitespace-nowrap rounded bg-neutral-800 px-2 py-0.5 text-xs font-bold tracking-wide text-gray-100 dark:bg-gray-300 dark:text-neutral-800 group-hover:xl:block">
-          Click to know more about this app
+          Know more about this app
         </span>
       </button>
     </li>

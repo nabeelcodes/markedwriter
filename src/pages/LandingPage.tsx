@@ -51,7 +51,7 @@ export const LandingPage = () => {
         <section className="items-center justify-between pt-10 md:flex">
           <article>
             <h1 className="text-3xl font-bold">All Files</h1>
-            <p className="mt-2 text-lg opacity-70">
+            <p className="mt-2 text-lg opacity-60">
               Create and manage markdown files.
             </p>
           </article>
@@ -72,8 +72,10 @@ export const LandingPage = () => {
             <h2 className="mt-6 text-xl font-bold">
               No markdown file exists !
             </h2>
-            <p className="mt-2 max-w-xs text-center opacity-70">
-              You don't have any markdowns yet. Start creating content.
+            <p className="mt-2 max-w-xs text-center text-sm opacity-60 xl:text-base">
+              You don't have any markdown files yet.
+              <br />
+              Start creating content.
             </p>
           </section>
         )}

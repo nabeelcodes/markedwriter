@@ -47,23 +47,25 @@ export const ClearAllButton = forwardRef<Ref, ClearAllButtonProps>(
               "group relative grid aspect-square h-12 place-content-center rounded border shadow-sm dark:border-red-600 dark:bg-red-600/10",
               "hover:xl:shadow-md dark:hover:xl:shadow-red-800",
               // classes for disabled state 👇
-              "dark:disabled:border-neutral-600 dark:disabled:bg-neutral-800",
+              "dark:disabled:border-neutral-600 dark:disabled:bg-neutral-800 dark:disabled:hover:xl:shadow-none",
               {
                 "border-none bg-transparent shadow-none dark:bg-transparent dark:disabled:bg-transparent":
                   onMobile,
               }
             )}
             disabled={isDisabled}>
-            {/* Tooltip 👇 */}
-            <span
-              className={cn(
-                "hidden xl:block",
-                "pointer-events-none absolute top-[0.5rem] whitespace-nowrap rounded border bg-white px-3 py-1 text-sm font-bold shadow-md",
-                "text-red-500 dark:border-neutral-600 dark:bg-neutral-800",
-                "translate-x-14 translate-y-3 opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"
-              )}>
-              Clear all content
-            </span>
+            {/* Tooltip 👇 (Not shown when button disabled) */}
+            {!isDisabled && (
+              <span
+                className={cn(
+                  "hidden xl:block",
+                  "pointer-events-none absolute top-[0.5rem] whitespace-nowrap rounded border bg-white px-3 py-1 text-sm font-bold shadow-md",
+                  "text-red-500 dark:border-neutral-600 dark:bg-neutral-800",
+                  "translate-x-14 translate-y-3 opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100"
+                )}>
+                Clear all content
+              </span>
+            )}
 
             <DeleteIcon disabled={isDisabled} />
           </button>
