@@ -14,7 +14,7 @@ export const DeleteIcon = ({ disabled, className }: DeleteIconProps) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cn("h-6 fill-red-500", className, {
-        "fill-gray-600": disabled,
+        "fill-gray-400 dark:fill-gray-500": disabled,
       })}>
       <g clipPath="url(#clip0_211_225)">
         <mask

@@ -6,6 +6,7 @@ import { appDataAtom, visibilityAtom } from "../store/appState";
 import { NewFileIconSVG } from "../assets/NewFileIconSVG";
 import { PlusIconSVG } from "../assets/PlusIconSVG";
 import { PostList } from "../components/PostCards/PostList";
+import { File } from "../lib/getNewPost";
 
 export const LandingPage = () => {
   const navigator = useNavigate();
@@ -26,16 +27,7 @@ export const LandingPage = () => {
   }, [setPaneVisibility]);
 
   const createNewMarkdownFile = () => {
-    const slug = Date.now().toString();
-    const newPost = {
-      id: slug,
-      title: "Project Title",
-      content: "",
-      date:
-        String(new Date()).substring(4, 10) +
-        "," +
-        String(new Date()).substring(10, 15),
-    };
+    const newPost = new File();
     const newPostArray = [newPost, ...appData];
     setAppData(newPostArray);
     navigator(`/${newPost.id}`);

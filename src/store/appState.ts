@@ -10,7 +10,7 @@ export const themeAtom = atomWithStorage<"light" | "dark">("theme", "light");
 
 /* App wide state to contain and monitor markdown 
 data */
-export const appDataAtom = atomWithStorage<AppData>("appData", []);
+export const appDataAtom = atomWithStorage<Post[]>("appData", []);
 
 /* State for open/close of RadixDialog */
 export const dialogStateAtom = atom<boolean>(false);

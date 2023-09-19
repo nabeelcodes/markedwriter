@@ -1,11 +1,20 @@
-export const DownloadIcon = () => {
+import { cn } from "../lib/classNameHelper";
+
+type DownloadIconProps = {
+  disabled?: boolean;
+  className?: string;
+};
+
+export const DownloadIcon = ({ disabled, className }: DownloadIconProps) => {
   return (
     <svg
       width="25"
       height="33"
       viewBox="0 0 25 33"
       xmlns="http://www.w3.org/2000/svg"
-      className="h-6 fill-black dark:fill-gray-300">
+      className={cn("h-6 fill-black dark:fill-gray-300", className, {
+        "fill-gray-400 dark:fill-gray-500": disabled,
+      })}>
       <g clipPath="url(#clip0_211_201)">
         <mask
           id="mask0_211_201"

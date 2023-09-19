@@ -2,7 +2,7 @@
 A little helper function to update the `content` value of the `currentPost` in the global `appData` array.
 */
 export const updatePostContent = (
-  appData: AppData,
+  appData: Post[],
   pageId: string | undefined,
   updatedPostContent: string
 ) => {

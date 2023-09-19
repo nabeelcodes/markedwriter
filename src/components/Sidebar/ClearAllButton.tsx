@@ -47,7 +47,7 @@ export const ClearAllButton = forwardRef<Ref, ClearAllButtonProps>(
               "group relative grid aspect-square h-12 place-content-center rounded border shadow-sm dark:border-red-600 dark:bg-red-600/10",
               "hover:xl:shadow-md dark:hover:xl:shadow-red-800",
               // classes for disabled state 👇
-              "dark:disabled:border-neutral-600 dark:disabled:bg-neutral-800 dark:disabled:hover:xl:shadow-none",
+              "dark:disabled:border-neutral-600 dark:disabled:bg-neutral-800 disabled:hover:xl:shadow-none",
               {
                 "border-none bg-transparent shadow-none dark:bg-transparent dark:disabled:bg-transparent":
                   onMobile,

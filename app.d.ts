@@ -4,5 +4,3 @@ type Post = {
   content: string;
   date: string;
 };
-
-type AppData = Post[];
