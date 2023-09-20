@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { memo, useState } from "react";
+import React, { memo, useState } from "react";
 import { useAtom } from "jotai";
 import { Close } from "@radix-ui/react-dialog";
 import { appDataAtom, dialogStateAtom } from "../../store/appState";

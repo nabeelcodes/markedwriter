@@ -1,3 +1,5 @@
+import React from "react";
+
 type funcProps = (
   event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   targetRef: React.RefObject<HTMLSpanElement>,

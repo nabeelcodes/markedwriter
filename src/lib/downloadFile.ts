@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 export const downloadFile = (file: Post | undefined) => {
   if (!file) return;
 

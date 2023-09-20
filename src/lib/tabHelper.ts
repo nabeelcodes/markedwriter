@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
+import React from "react";
+
 export const insertTabForTextarea = (
   event: React.KeyboardEvent<HTMLTextAreaElement>,
   tabInputHandler: (updatedPostContent: string) => void

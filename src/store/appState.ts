@@ -10,6 +10,7 @@ export const themeAtom = atomWithStorage<"light" | "dark">("theme", "light");
 
 /* App wide state to contain and monitor markdown 
 data */
+// eslint-disable-next-line no-undef
 export const appDataAtom = atomWithStorage<Post[]>("appData", []);
 
 /* State for open/close of RadixDialog */

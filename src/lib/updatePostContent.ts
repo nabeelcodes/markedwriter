@@ -2,6 +2,7 @@
 A little helper function to update the `content` value of the `currentPost` in the global `appData` array.
 */
 export const updatePostContent = (
+  // eslint-disable-next-line no-undef
   appData: Post[],
   pageId: string | undefined,
   updatedPostContent: string

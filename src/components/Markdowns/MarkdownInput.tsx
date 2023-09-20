@@ -1,3 +1,4 @@
+import React from "react";
 import { useAtom } from "jotai";
 import { appDataAtom, visibilityAtom } from "../../store/appState";
 import { getCurrentPost } from "../../lib/getCurrentPost";

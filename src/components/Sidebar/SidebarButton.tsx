@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import React, { forwardRef } from "react";
 import { cn } from "../../lib/classNameHelper";
 
 type SidebarButtonProps = React.ComponentPropsWithRef<"button"> & {
